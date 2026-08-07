@@ -26,7 +26,7 @@ const ROLES = [
     body: "Worked with entertainment studios including Universal, Sony and Warner Bros.",
   },
   {
-    org: "TOPYS, Shanghai",
+    org: "TOPYS",
     role: "Senior Brand Strategist",
     when: "",
     body: "Built connections across creative studios, individual creators and media.",
@@ -39,23 +39,16 @@ const ROLES = [
     highlight: "2,299% ROAS",
   },
   {
-    org: "Cabana, Shanghai",
+    org: "Cabana",
     role: "Creative Marketing Manager",
     when: "",
     body: "Creative-led marketing management.",
   },
   {
-    org: "Totem Media, Shanghai",
-    role: "Strategy Lead",
-    when: "Current",
-    body: "Generalist strategy role — strategy, account management and communication for international clients, including running Intel's campaigns across five APAC markets.",
-    current: true,
-  },
-  {
     org: "Independent",
-    role: "Founder, Chinese Brands Going Global (CGG)",
+    role: "Brand & Marketing Consultant",
     when: "Current",
-    body: "An independent China-market intelligence platform, tracking brands going global out of China.",
+    body: "Generalist consulting practice spanning brand strategy, integrated campaign execution and market-entry advisory for international clients — plus a growing shelf of self-shipped AI products on the side.",
     current: true,
   },
 ];
@@ -80,7 +73,7 @@ export default function Experience() {
               aria-hidden="true"
             />
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h3 className="font-display text-2xl">{r.org}</h3>
+              <h3 className="font-display font-semibold text-2xl">{r.org}</h3>
               {r.when && (
                 <span className="font-mono text-xs text-ink-soft uppercase tracking-wide">
                   {r.when}

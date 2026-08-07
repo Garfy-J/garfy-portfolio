@@ -10,6 +10,8 @@
   --indigo: #2c3468;
   --rule: #c9bfa6;
   --jade: #4c6b54;
+  --amber: #d9861f;
+  --magenta: #b23b78;
 }
 
 @theme inline {
@@ -22,7 +24,9 @@
   --color-indigo: var(--indigo);
   --color-rule: var(--rule);
   --color-jade: var(--jade);
-  --font-display: var(--font-fraunces);
+  --color-amber: var(--amber);
+  --color-magenta: var(--magenta);
+  --font-display: var(--font-bricolage);
   --font-hand: var(--font-caveat);
   --font-body: var(--font-inter);
   --font-mono: var(--font-plex-mono);
@@ -133,4 +137,59 @@ button:focus-visible {
 ::-webkit-scrollbar-thumb {
   background: var(--rule);
   border-radius: 6px;
+}
+
+/* Scroll-triggered reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Hero blob background */
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  mix-blend-mode: multiply;
+  opacity: 0.45;
+  will-change: transform;
+}
+@keyframes blob-float-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(4%, 6%) scale(1.1); }
+  66% { transform: translate(-3%, 3%) scale(0.95); }
+}
+@keyframes blob-float-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  40% { transform: translate(-5%, -4%) scale(0.92); }
+  75% { transform: translate(4%, -2%) scale(1.08); }
+}
+@keyframes blob-float-c {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(3%, -5%) scale(1.12); }
+}
+.blob-a {
+  animation: blob-float-a 18s ease-in-out infinite;
+}
+.blob-b {
+  animation: blob-float-b 22s ease-in-out infinite;
+}
+.blob-c {
+  animation: blob-float-c 26s ease-in-out infinite;
+}
+
+/* Infinite discipline marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 32s linear infinite;
+}
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }

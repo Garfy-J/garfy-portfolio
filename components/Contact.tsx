@@ -27,10 +27,10 @@ export default function Contact() {
       />
       <div className="relative max-w-3xl">
         <SealStamp text="let's talk" rotate={-5} className="mb-6" />
-        <h2 className="font-display text-5xl sm:text-7xl leading-[0.95]">
-          Based in Shanghai.
+        <h2 className="font-display font-bold text-5xl sm:text-7xl leading-[0.95]">
+          Working remotely.
           <br />
-          Working across APAC.
+          Available across APAC &amp; beyond.
         </h2>
         <p className="text-ink-soft text-lg mt-6 max-w-xl leading-relaxed">
           Open to brand strategy engagements, China market-entry advisory, and
@@ -55,7 +55,7 @@ export default function Contact() {
 
       <footer className="relative mt-24 pt-6 border-t border-rule flex flex-wrap items-center justify-between gap-4">
         <span className="font-hand text-xl text-ink-soft">
-          Garfield &ldquo;Garfy&rdquo; Wang — Shanghai
+          Garfield &ldquo;Garfy&rdquo; Wang — Remote · APAC-rooted, globally available
         </span>
         <span className="font-mono text-[11px] text-ink-soft uppercase tracking-wide">
           © {new Date().getFullYear()} · Built with Claude

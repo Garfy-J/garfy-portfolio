@@ -73,7 +73,7 @@ export default function CaseStudies() {
               </span>
               <SealStamp text={s.stamp} rotate={6} className="text-xs px-2 py-0.5" />
             </div>
-            <h3 className="font-display text-2xl leading-tight mt-2">{s.title}</h3>
+            <h3 className="font-display font-semibold text-2xl leading-tight mt-2">{s.title}</h3>
             <p className="font-mono text-xs text-ink-soft uppercase tracking-wide">
               {s.client}
             </p>

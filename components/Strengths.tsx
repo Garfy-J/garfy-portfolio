@@ -9,7 +9,7 @@ const PILLARS = [
     n: "02",
     title: "China market intelligence",
     body:
-      "Built and run Chinese Brands Going Global (CGG), an independent intelligence platform. Deep, hands-on fluency in WeChat, Weibo, RED (Xiaohongshu) and Douyin — the platforms strategy decks usually only describe secondhand.",
+      "Built and run an independent China-outbound intelligence practice, tracking brands going global out of China. Deep, hands-on fluency in WeChat, Weibo, RED (Xiaohongshu) and Douyin — the platforms strategy decks usually only describe secondhand.",
   },
   {
     n: "03",
@@ -33,7 +33,7 @@ export default function Strengths() {
         {PILLARS.map((p) => (
           <div key={p.n} className="bg-paper p-8 sm:p-10 flex flex-col gap-4">
             <span className="font-mono text-xs text-seal">{p.n}</span>
-            <h3 className="font-display text-2xl sm:text-3xl leading-tight">
+            <h3 className="font-display font-semibold text-2xl sm:text-3xl leading-tight">
               {p.title}
             </h3>
             <p className="text-ink-soft leading-relaxed">{p.body}</p>
@@ -56,7 +56,7 @@ export function SectionHeading({
       <span className="font-mono text-xs uppercase tracking-[0.25em] text-seal">
         {eyebrow}
       </span>
-      <h2 className="font-display text-5xl sm:text-6xl mt-2">{title}</h2>
+      <h2 className="font-display font-bold text-5xl sm:text-6xl mt-2">{title}</h2>
     </div>
   );
 }

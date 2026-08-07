@@ -1,5 +1,7 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
+import Marquee from "@/components/Marquee";
+import Reveal from "@/components/Reveal";
 import Strengths from "@/components/Strengths";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
@@ -15,14 +17,31 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <Strengths />
-        <Experience />
-        <Skills />
-        <Education />
-        <CaseStudies />
-        <AIProjects />
-        <Writing />
-        <Contact />
+        <Marquee />
+        <Reveal>
+          <Strengths />
+        </Reveal>
+        <Reveal>
+          <Experience />
+        </Reveal>
+        <Reveal>
+          <Skills />
+        </Reveal>
+        <Reveal>
+          <Education />
+        </Reveal>
+        <Reveal>
+          <CaseStudies />
+        </Reveal>
+        <Reveal>
+          <AIProjects />
+        </Reveal>
+        <Reveal>
+          <Writing />
+        </Reveal>
+        <Reveal>
+          <Contact />
+        </Reveal>
       </main>
     </>
   );

@@ -27,15 +27,31 @@ export default function Hero() {
         aria-hidden="true"
       />
 
+      {/* animated multi-accent blobs, frozen under prefers-reduced-motion */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
+        <div
+          className="blob blob-a -top-[8%] -left-[6%]"
+          style={{ background: "var(--seal)", width: "clamp(220px, 38vw, 420px)", height: "clamp(220px, 38vw, 420px)" }}
+        />
+        <div
+          className="blob blob-b top-[10%] right-[2%]"
+          style={{ background: "var(--indigo)", width: "clamp(200px, 34vw, 420px)", height: "clamp(200px, 34vw, 420px)" }}
+        />
+        <div
+          className="blob blob-c bottom-[4%] left-[22%]"
+          style={{ background: "var(--amber)", width: "clamp(160px, 28vw, 360px)", height: "clamp(160px, 28vw, 360px)" }}
+        />
+      </div>
+
       <div className="relative max-w-5xl">
         <div className="flex flex-wrap items-center gap-3 mb-8">
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-            Shanghai · Strategy &amp; Build
+            Remote · APAC-rooted, globally available
           </span>
           <SealStamp text="est. 2012" rotate={-6} />
         </div>
 
-        <h1 className="font-display font-medium text-[13vw] sm:text-[7.5vw] lg:text-[6.2vw] leading-[0.92] tracking-tight">
+        <h1 className="font-display font-extrabold text-[13vw] sm:text-[7.5vw] lg:text-[6.2vw] leading-[0.92] tracking-tight">
           Garfield Wang
         </h1>
 
@@ -44,15 +60,13 @@ export default function Hero() {
         </p>
 
         <p className="max-w-2xl text-lg sm:text-xl text-ink-soft leading-relaxed mb-10">
-          Brand &amp; integrated marketing strategist with{" "}
+          Brand &amp; integrated marketing generalist with{" "}
           <span className="highlight font-medium text-ink">10+ years across Greater China, Japan, Taiwan and APAC</span>.
-          Trilingual in English, Mandarin and Japanese. Strategy Lead at{" "}
-          <span className="text-ink font-medium">Totem Media</span>, and builder of{" "}
-          <span className="text-ink font-medium">
-            Chinese Brands Going Global (CGG)
-          </span>
-          , an independent China-market intelligence platform — plus a growing shelf of
-          self-shipped AI products on the side.
+          Trilingual in English, Mandarin and Japanese. I move across{" "}
+          <span className="text-ink font-medium">strategy, e-commerce, creative direction and content</span> —
+          comfortable switching disciplines and roles as the problem demands, not
+          boxed into one lane — plus a growing shelf of self-shipped AI products
+          on the side.
         </p>
 
         <div className="flex flex-wrap gap-4 mb-12">

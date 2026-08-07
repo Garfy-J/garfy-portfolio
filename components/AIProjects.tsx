@@ -1,6 +1,13 @@
 import { SectionHeading } from "./Strengths";
 import SealStamp from "./SealStamp";
 
+const ACCENTS: Record<string, { text: string; border: string }> = {
+  seal: { text: "text-seal", border: "border-seal/40" },
+  indigo: { text: "text-indigo", border: "border-indigo/40" },
+  jade: { text: "text-jade", border: "border-jade/40" },
+  amber: { text: "text-amber", border: "border-amber/40" },
+};
+
 const PROJECTS = [
   {
     name: "AeroQueue",
@@ -9,6 +16,8 @@ const PROJECTS = [
       "A live airport queue checker built for five personas — departing, arriving and transit passengers, escorts, and airport ops staff. Live queue visualizations, connection-safety checks, and a staff heatmap dashboard.",
     rotate: -3,
     tape: "left",
+    accent: "seal",
+    productHunt: "https://www.producthunt.com/products/aeroqueue",
   },
   {
     name: "TABI",
@@ -17,6 +26,8 @@ const PROJECTS = [
       "A Japanese city-pop styled travel finance and currency converter app — fast rate checks with a distinct visual identity, launched on Product Hunt.",
     rotate: 2,
     tape: "right",
+    accent: "indigo",
+    productHunt: "https://www.producthunt.com/products/live-travel-financial-friend",
   },
   {
     name: "LocalPulse",
@@ -24,6 +35,8 @@ const PROJECTS = [
     body: "An app for surfacing what's actually happening nearby, right now.",
     rotate: -2,
     tape: "left",
+    accent: "jade",
+    productHunt: "https://www.producthunt.com/products/localpulse",
   },
   {
     name: "Meraki",
@@ -32,6 +45,7 @@ const PROJECTS = [
       "A self-built Next.js storefront for a curated homeware e-commerce brand — design, build and commerce, end to end.",
     rotate: 3,
     tape: "right",
+    accent: "amber",
   },
 ];
 
@@ -61,14 +75,22 @@ export default function AIProjects() {
                 top: -14,
                 [p.tape === "left" ? "left" : "right"]: 24,
                 transform: `rotate(${p.tape === "left" ? -8 : 8}deg)`,
+                background: `color-mix(in srgb, var(--${p.accent}) 22%, transparent)`,
               }}
               aria-hidden="true"
             />
             <div className="flex items-start justify-between gap-3">
-              <h3 className="font-display text-3xl">{p.name}</h3>
-              <span className="font-mono text-[10px] uppercase tracking-wide text-jade border border-jade/40 px-2 py-1 whitespace-nowrap">
-                Product Hunt
-              </span>
+              <h3 className="font-display font-bold text-3xl">{p.name}</h3>
+              {p.productHunt && (
+                <a
+                  href={p.productHunt}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`font-mono text-[10px] uppercase tracking-wide px-2 py-1 whitespace-nowrap border hover:bg-paper-2 transition-colors ${ACCENTS[p.accent].text} ${ACCENTS[p.accent].border}`}
+                >
+                  Product Hunt ↗
+                </a>
+              )}
             </div>
             <p className="font-hand text-xl text-seal mt-1">{p.tagline}</p>
             <p className="text-ink-soft leading-relaxed mt-3 text-sm">{p.body}</p>
