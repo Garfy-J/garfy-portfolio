@@ -19,7 +19,7 @@ const STUDIES = [
     title: "E-Commerce & Marketing",
     client: "Milleporte K.K., Tokyo",
     body:
-      "Owned e-commerce and marketing management, driving results to a 2,299% ROAS.",
+      "Led the marketing campaign end to end — content marketing, KOC/KOL influencer marketing, and a website revamp paired with a performance marketing strategy — driving results to a 2,299% ROAS.",
     stamp: "2,299% ROAS",
     color: "coral" as const,
   },
@@ -57,6 +57,26 @@ const STUDIES = [
       "Planning and partnership work with major entertainment studios during my time in Beijing.",
     stamp: "3 studios",
     color: "coral" as const,
+  },
+  {
+    tag: "Collaboration",
+    title: "“Eroded Jupiter” — Daniel Arsham",
+    client: "Cabana × Archive Editions × Arsham Studio, 2022",
+    body:
+      "Project-managed ‘Eroded Jupiter,’ a limited-edition collaboration with artist Daniel Arsham — the Eroded Zeus Candle. Responsible for project management, commercial photography, and merchandising planning.",
+    stamp: "ltd. edition",
+    color: "yellow" as const,
+    href: "https://www.instagram.com/p/Cf3mKGKMKfa/",
+    linkLabel: "See the collab",
+  },
+  {
+    tag: "Collaboration",
+    title: "Kvadrat / Raf Simons",
+    client: "Cabana — 3rd Anniversary Limited Edition, 2021",
+    body:
+      "Creative lead on Cabana's 3rd Anniversary Limited Edition release featuring the Kvadrat/Raf Simons collaboration — including the Zanotta Maggiolina Lounge Chair. Responsible for project management, editorial photography, and social content creation for the limited release.",
+    stamp: "3rd anniv.",
+    color: "teal" as const,
   },
 ];
 
@@ -98,6 +118,16 @@ export default function CaseStudies() {
               {s.client}
             </p>
             <p className="text-ink-soft leading-relaxed text-sm">{s.body}</p>
+            {"href" in s && s.href && (
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wide font-bold text-ink border-2 ${CARD_BORDER[s.color]} rounded-full px-4 py-2 mt-1 hover:bg-ink hover:text-paper hover:border-ink transition-colors w-fit`}
+              >
+                {s.linkLabel} ↗
+              </a>
+            )}
           </motion.article>
         ))}
       </div>
