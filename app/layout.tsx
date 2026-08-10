@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Bricolage_Grotesque, Caveat, Inter, IBM_Plex_Mono } from "next/font/google";
+import { Bricolage_Grotesque, Caveat, Plus_Jakarta_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
   variable: "--font-bricolage",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800"],
-  style: ["normal"],
 });
 
 const caveat = Caveat({
@@ -15,10 +14,10 @@ const caveat = Caveat({
   weight: ["500", "600", "700"],
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["400", "500", "600"],
+  weight: ["400", "500", "600", "700"],
 });
 
 const plexMono = IBM_Plex_Mono({
@@ -30,7 +29,7 @@ const plexMono = IBM_Plex_Mono({
 export const metadata: Metadata = {
   title: "Garfield Wang — Brand & Integrated Marketing Strategist",
   description:
-    "Garfield 'Garfy' Wang — brand and integrated marketing strategist across Greater China, Japan, Taiwan, and APAC. Strategy, China market entry, and self-built AI products.",
+    "Garfield 'Garfy' Wang — remote brand and integrated marketing strategist working across industries and markets. Strategy, campaigns, and self-built AI products.",
 };
 
 export default function RootLayout({
@@ -39,9 +38,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${bricolage.variable} ${caveat.variable} ${inter.variable} ${plexMono.variable}`}
+      className={`${bricolage.variable} ${caveat.variable} ${jakarta.variable} ${plexMono.variable}`}
     >
-      <body className="paper-grain antialiased">{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

@@ -59,9 +59,9 @@ export default function Nav() {
               key={s.id}
               href={`#${s.id}`}
               onClick={() => setOpen(false)}
-              className={`group flex items-center gap-2 pl-4 pr-3 py-2 sm:py-1.5 font-mono text-[11px] uppercase tracking-wider border-l-4 transition-colors ${
+              className={`group flex items-center gap-2 pl-4 pr-3 py-2 sm:py-1.5 font-mono text-[11px] font-bold uppercase tracking-wider border-l-4 transition-colors ${
                 isActive
-                  ? "border-seal text-seal bg-paper/80 sm:bg-paper"
+                  ? "border-coral text-coral bg-paper/80 sm:bg-paper"
                   : "border-transparent text-ink-soft hover:text-ink hover:border-rule"
               }`}
               style={

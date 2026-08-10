@@ -1,39 +1,44 @@
-const DISCIPLINES = [
-  { label: "Strategy", accent: "text-seal" },
-  { label: "Brand", accent: "text-indigo" },
-  { label: "E-Commerce", accent: "text-jade" },
-  { label: "Creative Direction", accent: "text-amber" },
-  { label: "Film", accent: "text-magenta" },
-  { label: "Content", accent: "text-seal" },
-  { label: "China Market", accent: "text-indigo" },
-  { label: "AI Product Build", accent: "text-jade" },
+const ITEMS = [
+  "STRATEGY",
+  "BRAND",
+  "E-COMMERCE",
+  "CREATIVE DIRECTION",
+  "FILM",
+  "CONTENT",
+  "CHINA MARKET",
+  "AI PRODUCT BUILD",
 ];
 
-function Track({ ariaHidden }: { ariaHidden?: boolean }) {
-  return (
-    <div className="marquee-track" aria-hidden={ariaHidden}>
-      {DISCIPLINES.map((d, i) => (
-        <span
-          key={i}
-          className="flex items-center gap-3 px-6 sm:px-8 shrink-0 whitespace-nowrap"
-        >
-          <span className={`font-display font-bold text-2xl sm:text-3xl ${d.accent}`}>
-            {d.label}
-          </span>
-          <span className="text-ink-soft/50 text-xl" aria-hidden="true">
-            ✦
-          </span>
-        </span>
-      ))}
-    </div>
-  );
-}
-
 export default function Marquee() {
+  const loop = [...ITEMS, ...ITEMS];
   return (
-    <div className="relative overflow-hidden border-y border-rule bg-paper-2 py-5">
-      <Track />
-      <Track ariaHidden />
+    <div
+      className="relative w-full overflow-hidden border-y border-rule py-4"
+      aria-hidden="true"
+    >
+      <div className="marquee-track">
+        {loop.map((item, i) => (
+          <span
+            key={item + i}
+            className="font-display font-semibold text-sm sm:text-base tracking-wide px-6 whitespace-nowrap flex items-center gap-6"
+          >
+            <span
+              className={
+                i % 4 === 0
+                  ? "text-seal"
+                  : i % 4 === 1
+                  ? "text-indigo"
+                  : i % 4 === 2
+                  ? "text-jade"
+                  : "text-sky"
+              }
+            >
+              {item}
+            </span>
+            <span className="text-rule">/</span>
+          </span>
+        ))}
+      </div>
     </div>
   );
 }

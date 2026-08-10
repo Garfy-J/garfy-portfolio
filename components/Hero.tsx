@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import SealStamp from "./SealStamp";
 
 const LINKS = [
@@ -11,92 +14,131 @@ const LINKS = [
   },
 ];
 
+const fadeUp = {
+  hidden: { opacity: 0, y: 24 },
+  show: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: { delay: i * 0.08, duration: 0.6, ease: [0.22, 1, 0.36, 1] as const },
+  }),
+};
+
 export default function Hero() {
   return (
     <section
       id="top"
       className="relative min-h-screen flex flex-col justify-center px-6 sm:px-12 lg:px-24 pt-28 pb-20 overflow-hidden"
     >
-      {/* faint ruled lines, like notebook paper */}
+      {/* decorative flat shapes */}
       <div
-        className="absolute inset-0 pointer-events-none opacity-[0.35]"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(to bottom, transparent, transparent 43px, var(--rule) 43px, var(--rule) 44px)",
-        }}
+        className="animate-float absolute top-24 right-[6%] w-24 h-24 sm:w-36 sm:h-36 rounded-full bg-yellow hidden sm:block"
+        style={{ ["--r" as string]: "8deg" }}
         aria-hidden="true"
       />
-
-      {/* animated multi-accent blobs, frozen under prefers-reduced-motion */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
-        <div
-          className="blob blob-a -top-[8%] -left-[6%]"
-          style={{ background: "var(--seal)", width: "clamp(220px, 38vw, 420px)", height: "clamp(220px, 38vw, 420px)" }}
-        />
-        <div
-          className="blob blob-b top-[10%] right-[2%]"
-          style={{ background: "var(--indigo)", width: "clamp(200px, 34vw, 420px)", height: "clamp(200px, 34vw, 420px)" }}
-        />
-        <div
-          className="blob blob-c bottom-[4%] left-[22%]"
-          style={{ background: "var(--amber)", width: "clamp(160px, 28vw, 360px)", height: "clamp(160px, 28vw, 360px)" }}
-        />
-      </div>
+      <div
+        className="animate-float absolute bottom-16 right-[18%] w-16 h-16 sm:w-24 sm:h-24 bg-teal hidden sm:block"
+        style={{ ["--r" as string]: "-10deg", animationDelay: "1.2s" }}
+        aria-hidden="true"
+      />
+      <svg
+        className="absolute top-40 right-[28%] w-20 h-20 hidden lg:block animate-float"
+        style={{ ["--r" as string]: "0deg", animationDelay: "0.6s" }}
+        viewBox="0 0 100 100"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path d="M50 5 L61 39 H97 L68 60 L79 94 L50 73 L21 94 L32 60 L3 39 H39 Z" fill="var(--cobalt)" />
+      </svg>
 
       <div className="relative max-w-5xl">
-        <div className="flex flex-wrap items-center gap-3 mb-8">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          custom={0}
+          variants={fadeUp}
+          className="flex flex-wrap items-center gap-3 mb-8"
+        >
           <span className="font-mono text-xs uppercase tracking-[0.2em] text-ink-soft">
-            Remote · APAC-rooted, globally available
+            Remote · Multi-Discipline Strategist
           </span>
-          <SealStamp text="est. 2012" rotate={-6} />
-        </div>
+          <SealStamp text="10+ yrs" color="yellow" rotate={-5} />
+        </motion.div>
 
-        <h1 className="font-display font-extrabold text-[13vw] sm:text-[7.5vw] lg:text-[6.2vw] leading-[0.92] tracking-tight">
+        <motion.h1
+          initial="hidden"
+          animate="show"
+          custom={1}
+          variants={fadeUp}
+          className="font-display font-extrabold text-[15vw] sm:text-[8vw] lg:text-[6.4vw] leading-[0.9] tracking-tight"
+        >
           Garfield Wang
-        </h1>
+        </motion.h1>
 
-        <p className="font-hand text-3xl sm:text-4xl text-seal mt-2 mb-8 -rotate-1">
+        <motion.p
+          initial="hidden"
+          animate="show"
+          custom={2}
+          variants={fadeUp}
+          className="font-hand text-3xl sm:text-4xl text-coral mt-2 mb-8 -rotate-1"
+        >
           — everyone calls me Garfy
-        </p>
+        </motion.p>
 
-        <p className="max-w-2xl text-lg sm:text-xl text-ink-soft leading-relaxed mb-10">
-          Brand &amp; integrated marketing generalist with{" "}
-          <span className="highlight font-medium text-ink">10+ years across Greater China, Japan, Taiwan and APAC</span>.
-          Trilingual in English, Mandarin and Japanese. I move across{" "}
-          <span className="text-ink font-medium">strategy, e-commerce, creative direction and content</span> —
-          comfortable switching disciplines and roles as the problem demands, not
-          boxed into one lane — plus a growing shelf of self-shipped AI products
-          on the side.
-        </p>
+        <motion.p
+          initial="hidden"
+          animate="show"
+          custom={3}
+          variants={fadeUp}
+          className="max-w-2xl text-lg sm:text-xl text-ink-soft leading-relaxed mb-10"
+        >
+          A <span className="highlight-coral font-semibold text-ink">multi-background brand &amp; integrated marketing strategist</span> —{" "}
+          <span className="font-semibold text-ink">10+ years across Greater China, Japan, Taiwan and APAC</span>,
+          fluent in English, Mandarin and Japanese. I&rsquo;ve worked
+          <span className="highlight-yellow font-semibold text-ink"> auto, luxury, entertainment, outdoor, hospitality and tech</span>{" "}
+          accounts across a dozen roles — plus a growing shelf of self-shipped
+          AI products on the side. Fully remote, working with teams across time zones.
+        </motion.p>
 
-        <div className="flex flex-wrap gap-4 mb-12">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          custom={4}
+          variants={fadeUp}
+          className="flex flex-wrap gap-4 mb-12"
+        >
           <a
             href="#case-studies"
-            className="bg-ink text-paper font-mono text-sm uppercase tracking-wide px-6 py-3 rounded-sm hover:bg-seal transition-colors"
+            className="bg-ink text-paper font-display font-bold text-sm uppercase tracking-wide px-6 py-3.5 rounded-full hover:bg-coral transition-colors"
           >
             View case studies
           </a>
           <a
             href="#ai-projects"
-            className="border-2 border-ink font-mono text-sm uppercase tracking-wide px-6 py-3 rounded-sm hover:border-seal hover:text-seal transition-colors"
+            className="border-2 border-ink font-display font-bold text-sm uppercase tracking-wide px-6 py-3.5 rounded-full hover:border-cobalt hover:text-cobalt transition-colors"
           >
             Self-built AI products
           </a>
-        </div>
+        </motion.div>
 
-        <div className="flex flex-wrap gap-x-6 gap-y-2">
+        <motion.div
+          initial="hidden"
+          animate="show"
+          custom={5}
+          variants={fadeUp}
+          className="flex flex-wrap gap-x-6 gap-y-2"
+        >
           {LINKS.map((l) => (
             <a
               key={l.label}
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-seal squiggle-underline pb-1 transition-colors"
+              className="font-mono text-xs uppercase tracking-wider text-ink-soft hover:text-coral squiggle-underline pb-1 transition-colors"
             >
               {l.label} ↗
             </a>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

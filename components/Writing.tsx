@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { SectionHeading } from "./Strengths";
 
 const POSTS = [
@@ -17,23 +20,29 @@ export default function Writing() {
         storytelling stack — published on Medium.
       </p>
 
-      <ul className="mt-12 max-w-3xl divide-y divide-rule border-t border-b border-rule">
-        {POSTS.map((title) => (
-          <li key={title}>
+      <ul className="mt-12 max-w-3xl divide-y-2 divide-rule border-t-2 border-b-2 border-rule">
+        {POSTS.map((title, i) => (
+          <motion.li
+            key={title}
+            initial={{ opacity: 0, x: -16 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-60px" }}
+            transition={{ duration: 0.35, delay: i * 0.05 }}
+          >
             <a
               href="https://garfieldwang.medium.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-between gap-6 py-5 group"
             >
-              <span className="font-display text-xl sm:text-2xl group-hover:text-seal transition-colors">
+              <span className="font-display font-semibold text-xl sm:text-2xl group-hover:text-coral transition-colors">
                 {title}
               </span>
-              <span className="font-mono text-xs text-ink-soft group-hover:text-seal transition-colors shrink-0">
+              <span className="font-mono text-xs text-ink-soft group-hover:text-coral transition-colors shrink-0">
                 Read ↗
               </span>
             </a>
-          </li>
+          </motion.li>
         ))}
       </ul>
 
@@ -41,7 +50,7 @@ export default function Writing() {
         href="https://garfieldwang.medium.com/"
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block mt-8 font-mono text-sm uppercase tracking-wide text-seal squiggle-underline pb-1"
+        className="inline-block mt-8 font-mono text-sm uppercase tracking-wide text-coral squiggle-underline pb-1"
       >
         All posts on Medium ↗
       </a>
