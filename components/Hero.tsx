@@ -93,7 +93,7 @@ export default function Hero() {
         >
           A <span className="highlight-coral font-semibold text-ink">multi-background brand &amp; integrated marketing strategist</span> —{" "}
           <span className="font-semibold text-ink">10+ years across Greater China, Japan, Taiwan and APAC</span>,
-          fluent in English, Mandarin and Japanese. I&rsquo;ve worked
+          fluent in English and Mandarin, with working Japanese for client-facing work. I&rsquo;ve worked
           <span className="highlight-yellow font-semibold text-ink"> auto, luxury, entertainment, outdoor, hospitality and tech</span>{" "}
           accounts across a dozen roles — plus a growing shelf of self-shipped
           AI products on the side. Fully remote, working with teams across time zones.

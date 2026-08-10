@@ -7,7 +7,7 @@ const PILLARS = [
     n: "01",
     title: "Multi-industry brand strategy",
     body:
-      "A decade-plus running strategy for automotive, luxury, entertainment, outdoor, hospitality and tech brands — across Greater China, Japan, Taiwan and wider APAC. Trilingual in English, Mandarin and Japanese, which means sitting in the room for the local nuance, not just the market report.",
+      "A decade-plus running strategy for automotive, luxury, entertainment, outdoor, hospitality and tech brands — across Greater China, Japan, Taiwan and wider APAC. Fluent in English and Mandarin, with working Japanese for client-facing work, which means sitting in the room for the local nuance, not just the market report.",
     color: "coral",
   },
   {

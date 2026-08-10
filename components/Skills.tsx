@@ -28,7 +28,7 @@ const GROUPS = [
   {
     title: "Languages",
     color: "text-coral",
-    items: ["English — fluent", "Mandarin — fluent", "Japanese — fluent"],
+    items: ["English — fluent", "Mandarin — fluent", "Japanese — working proficiency (client-facing use)"],
   },
   {
     title: "Build & Ship",
