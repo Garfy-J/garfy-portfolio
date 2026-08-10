@@ -8,50 +8,57 @@ const ROLES = [
     org: "Cyberlink",
     role: "Marketing Assistant",
     when: "Oct 2012 – Dec 2013",
-    body: "Product marketing and e-commerce across APAC and EMEA.",
+    body: "Cut my teeth in product marketing and e-commerce across APAC and EMEA — the crash course that taught me how brands actually move product, not just headlines.",
   },
   {
     org: "Ogilvy, Taipei",
     role: "Digital Media Planner",
     when: "",
-    body: "Early digital media planning grounding at one of the network agencies.",
+    body: "Learned digital media planning inside one of advertising's biggest network agencies — where strategy and execution first had to earn the right to talk to each other.",
   },
   {
     org: "GREY Group, Beijing",
     role: "Brand Strategist",
     when: "",
-    body: "Strategy work spanning auto, medical and other categories.",
+    body: "Built brand strategy for auto and medical clients — categories where the stakes are real and there's no room for sloppy thinking.",
   },
   {
     org: "Olé Inspiration, Beijing",
     role: "Planning Manager",
     when: "",
-    body: "Worked with entertainment studios including Universal, Sony and Warner Bros.",
+    body: "Partnered with Universal, Sony and Warner Bros. on entertainment marketing — learning how to make a studio's biggest bets feel personal to an audience of millions.",
   },
   {
     org: "TOPYS",
     role: "Senior Brand Strategist",
     when: "",
-    body: "Built connections across creative studios, individual creators and media.",
+    body: "Built a web of relationships across creative studios, independent creators and media — the kind of network you can't shortcut or fake.",
   },
   {
     org: "Milleporte K.K., Tokyo",
     role: "E-Commerce & Marketing Manager",
     when: "",
-    body: "Drove e-commerce and marketing to a 2,299% ROAS.",
+    body: "Owned e-commerce and marketing end to end, and pushed it hard — content marketing, KOC/KOL influencer marketing, and a website revamp paired with a performance marketing strategy, driving results to a",
     highlight: "2,299% ROAS",
   },
   {
     org: "Cabana",
     role: "Creative Marketing Manager",
     when: "",
-    body: "Creative-led marketing management.",
+    body: "Two collaborations, two very different creative registers: project-managed ‘Eroded Jupiter,’ a limited-edition collaboration with artist Daniel Arsham, and led creative on Cabana's 3rd Anniversary Limited Edition release featuring Kvadrat/Raf Simons.",
+  },
+  {
+    org: "Totem Media",
+    role: "Strategy Lead",
+    when: "Current",
+    body: "Leading integrated strategy for international brands — including Intel's B2B and B2C influencer programs across five APAC markets — and contributing to Totem's China Brands Going Global intelligence report.",
+    current: true,
   },
   {
     org: "Independent",
     role: "Brand & Integrated Marketing Strategist",
     when: "Current",
-    body: "A remote-first practice spanning strategy, market intelligence and campaign execution for international clients across auto, luxury, hospitality, outdoor and tech — plus hands-on work with Asia's major consumer platforms.",
+    body: "A remote-first practice spanning strategy, market intelligence and campaign execution for international clients across auto, luxury, hospitality, outdoor and tech — plus hands-on work with Asia's major consumer platforms. Built to move fast and go wherever the work is.",
     current: true,
   },
 ];
@@ -89,7 +96,7 @@ export default function Experience() {
             <p className="text-ink-soft mt-2 leading-relaxed max-w-xl">
               {r.highlight ? (
                 <>
-                  Drove e-commerce and marketing to a{" "}
+                  {r.body}{" "}
                   <span className="highlight-yellow font-semibold text-ink">
                     {r.highlight}
                   </span>

@@ -6,13 +6,26 @@ import SealStamp from "./SealStamp";
 
 const STUDIES = [
   {
+    tag: "Report",
+    title: "China Brands Going Global 2026",
+    client: "Totem Media × Rakuten Insight",
+    body:
+      "Totem's flagship annual report, co-published with Rakuten Insight and featured in Campaign Asia. Data analysis across 451 Chinese brands, full bilingual translation of a 99-slide report (EN → Simplified Chinese), and a full brand-database re-ranking. Now the primary door-opener for Totem's China-outbound business development.",
+    stamp: "flagship",
+    color: "yellow" as const,
+    href: "https://www.talktototem.com/insights/reports/china-brands-global-2026",
+    linkLabel: "Read the report",
+  },
+  {
     tag: "Campaign",
     title: "APAC Influencer Program",
     client: "Intel",
     body:
-      "Running strategy, account management and influencer marketing across five markets — India, China, Korea, Japan and Taiwan.",
+      "Ran strategy and account management across two fronts — B2C (Intel Gaming Alliance and Mobile Go-Getter AI-PC creator content) and B2B (Intel vPro thought-leadership for enterprise and IT audiences) — across five markets: India, China, Korea, Japan and Taiwan.",
     stamp: "5 markets",
     color: "cobalt" as const,
+    href: "https://www.youtube.com/watch?v=Q_s8BsXPFzs",
+    linkLabel: "Watch the work",
   },
   {
     tag: "Result",
