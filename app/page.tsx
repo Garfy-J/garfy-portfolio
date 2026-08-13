@@ -7,6 +7,7 @@ import Skills from "@/components/Skills";
 import Education from "@/components/Education";
 import CaseStudies from "@/components/CaseStudies";
 import AIProjects from "@/components/AIProjects";
+import MusicProduction from "@/components/MusicProduction";
 import Writing from "@/components/Writing";
 import Contact from "@/components/Contact";
 
@@ -23,6 +24,7 @@ export default function Home() {
         <Education />
         <CaseStudies />
         <AIProjects />
+        <MusicProduction />
         <Writing />
         <Contact />
       </main>

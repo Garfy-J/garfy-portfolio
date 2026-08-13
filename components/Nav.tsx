@@ -10,6 +10,7 @@ const SECTIONS = [
   { id: "education", label: "Education" },
   { id: "case-studies", label: "Case Studies" },
   { id: "ai-projects", label: "AI Projects" },
+  { id: "music", label: "Music" },
   { id: "writing", label: "Writing" },
   { id: "contact", label: "Contact" },
 ];
