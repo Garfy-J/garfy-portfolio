@@ -1,24 +1,26 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #eee7db;
-  --paper-2: #e3dacb;
-  --ink: #26221f;
-  --ink-soft: #6b635a;
-  --orange: #ee7d3b;
-  --orange-deep: #c9561c;
-  --rule: #ded2bf;
+  --paper: #eae1cf;
+  --paper-2: #dfd4be;
+  --ink: #24211d;
+  --ink-soft: #6a6155;
+  --yellow: #e8b53a;
+  --yellow-deep: #8f6210;
+  --lamp-glow: #f7d774;
+  --lens: #2e2c29;
+  --rule: #d6c9ac;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #1a1714;
-    --paper-2: #24201c;
-    --ink: #f1eadf;
-    --ink-soft: #b3aa9e;
-    --orange: #f28b4c;
-    --orange-deep: #f59a63;
-    --rule: #3a342c;
+    --paper: #191714;
+    --paper-2: #23201b;
+    --ink: #efe6d4;
+    --ink-soft: #b0a795;
+    --yellow: #f0c04f;
+    --yellow-deep: #f2c963;
+    --rule: #332e24;
   }
 }
 
@@ -27,8 +29,10 @@
   --color-paper-2: var(--paper-2);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
-  --color-orange: var(--orange);
-  --color-orangeDeep: var(--orange-deep);
+  --color-yellow: var(--yellow);
+  --color-yellowDeep: var(--yellow-deep);
+  --color-lampGlow: var(--lamp-glow);
+  --color-lens: var(--lens);
   --color-rule: var(--rule);
   --font-display: var(--font-bricolage);
   --font-hand: var(--font-caveat);
@@ -41,7 +45,9 @@ html {
 }
 
 body {
-  background: var(--paper);
+  background-color: var(--paper);
+  background-image: radial-gradient(color-mix(in srgb, var(--ink) 7%, transparent) 1px, transparent 1.3px);
+  background-size: 6px 6px;
   color: var(--ink);
   font-family: var(--font-body);
 }
@@ -59,7 +65,7 @@ body {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--orange);
+  outline: 2px solid var(--yellow);
   outline-offset: 3px;
 }
 
@@ -82,7 +88,7 @@ button:focus-visible {
   transform: rotate(180deg);
 }
 
-/* Halftone dot field — subtle texture behind sections/illustration. */
+/* Halftone dot field — subtle texture inside cards/illustration panels. */
 .halftone {
   background-image: radial-gradient(var(--ink) 1px, transparent 1.4px);
   background-size: 14px 14px;
@@ -101,7 +107,7 @@ button:focus-visible {
   text-transform: uppercase;
   letter-spacing: 0.04em;
   font-weight: 700;
-  background: var(--orange);
+  background: var(--yellow);
   color: var(--ink);
   border-radius: 999px;
   padding: 0.35rem 0.85rem;
@@ -121,15 +127,34 @@ button:focus-visible {
   line-height: 0.85;
 }
 
-.highlight-orange {
-  background: linear-gradient(120deg, color-mix(in srgb, var(--orange) 45%, transparent) 0%, color-mix(in srgb, var(--orange) 45%, transparent) 100%);
+.highlight-yellow {
+  background: linear-gradient(120deg, color-mix(in srgb, var(--yellow) 55%, transparent) 0%, color-mix(in srgb, var(--yellow) 55%, transparent) 100%);
   background-repeat: no-repeat;
   background-size: 100% 42%;
   background-position: 0 88%;
 }
 
+/* Soft radial "lit lamp" glow — active nav, CTA hover, contact character halo. */
+.lamp-glow {
+  position: relative;
+}
+.lamp-glow::before {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--lamp-glow) 70%, transparent) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+  z-index: -1;
+}
+.lamp-glow.is-lit::before,
+.lamp-glow:hover::before {
+  opacity: 1;
+}
+
 ::selection {
-  background: var(--orange);
+  background: var(--yellow);
   color: var(--ink);
 }
 

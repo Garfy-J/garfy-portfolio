@@ -41,7 +41,7 @@ export default function MusicProduction() {
         transition={{ duration: 0.45 }}
         className="mt-14 max-w-3xl"
       >
-        <span className="poster-meta text-orangeDeep font-bold">Brand film · 2019</span>
+        <span className="poster-meta text-yellowDeep font-bold">Brand film · 2019</span>
         <a
           href="https://www.youtube.com/watch?v=nVHZ1z2JE0Y"
           target="_blank"
@@ -86,7 +86,7 @@ export default function MusicProduction() {
         transition={{ duration: 0.45, delay: 0.1 }}
         className="mt-16 max-w-3xl"
       >
-        <span className="poster-meta text-orangeDeep font-bold">AI-directed · Sora</span>
+        <span className="poster-meta text-yellowDeep font-bold">AI-directed · Sora</span>
         <h3 className="font-bold text-xl sm:text-2xl mt-2">
           AI-directed visual-script thriller shorts, ten seconds at a time.
         </h3>
@@ -124,7 +124,7 @@ export default function MusicProduction() {
           href={CHANNEL_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="poster-meta inline-block mt-5 text-ink-soft hover:text-orangeDeep transition-colors"
+          className="poster-meta inline-block mt-5 text-ink-soft hover:text-yellowDeep transition-colors"
         >
           @garfieldw1970 on YouTube ↗
         </a>
@@ -138,7 +138,7 @@ export default function MusicProduction() {
         transition={{ duration: 0.45, delay: 0.2 }}
         className="mt-16 max-w-3xl"
       >
-        <span className="poster-meta text-orangeDeep font-bold">Music</span>
+        <span className="poster-meta text-yellowDeep font-bold">Music</span>
         <a
           href={SPOTIFY_URL}
           target="_blank"
@@ -162,7 +162,7 @@ export default function MusicProduction() {
             <span className="font-display font-bold text-xl sm:text-2xl text-ink block">
               Released as GARFY
             </span>
-            <span className="poster-meta text-ink-soft group-hover:text-orangeDeep transition-colors">
+            <span className="poster-meta text-ink-soft group-hover:text-yellowDeep transition-colors">
               on Spotify ↗
             </span>
           </div>

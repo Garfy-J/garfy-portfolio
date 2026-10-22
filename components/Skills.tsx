@@ -69,7 +69,7 @@ export default function Skills() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.35, delay: (i % 3) * 0.06 }}
           >
-            <h3 className="font-mono text-xs uppercase tracking-[0.2em] mb-4 font-bold text-orangeDeep">
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] mb-4 font-bold text-yellowDeep">
               {g.title}
             </h3>
             <ul className="space-y-2">

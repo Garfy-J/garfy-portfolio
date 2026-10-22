@@ -9,7 +9,7 @@ export default function AlpinePeaks({ className = "" }: { className?: string }) 
       preserveAspectRatio="xMidYMax slice"
       aria-hidden="true"
     >
-      <circle cx="560" cy="190" r="70" fill="var(--orange)" className="animate-sun-drift" />
+      <circle cx="560" cy="190" r="70" fill="var(--yellow)" className="animate-sun-drift" />
       <polygon
         points="0,300 120,120 230,230 340,90 460,230 560,140 680,260 800,180 800,300"
         fill="var(--paper-2)"

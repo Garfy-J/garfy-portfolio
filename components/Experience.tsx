@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "./Strengths";
+import CareerRoute from "./CareerRoute";
 
 const ROLES = [
   {
@@ -67,7 +68,9 @@ export default function Experience() {
     <section id="experience" className="px-6 sm:px-12 lg:px-24 py-24 sm:py-32">
       <SectionHeading eyebrow="The long version" title="Experience" />
 
-      <div className="mt-14 max-w-3xl">
+      <div className="mt-14 flex gap-2 sm:gap-6 lg:gap-10">
+        <CareerRoute className="w-10 sm:w-16 lg:w-24 shrink-0" />
+        <div className="flex-1 min-w-0 max-w-3xl">
         {ROLES.map((r, i) => (
           <motion.div
             key={r.org + r.role}
@@ -79,7 +82,7 @@ export default function Experience() {
           >
             <span
               className={`absolute -left-[11px] top-1 w-5 h-5 rounded-full border-2 border-ink ${
-                r.current ? "bg-orange" : "bg-paper-2"
+                r.current ? "bg-yellow" : "bg-paper-2"
               }`}
               aria-hidden="true"
             />
@@ -87,11 +90,11 @@ export default function Experience() {
               <h3 className="font-display font-bold text-2xl">{r.org}</h3>
               {r.when && <span className="poster-meta text-ink-soft">{r.when}</span>}
             </div>
-            <p className="text-orangeDeep font-semibold mt-0.5">{r.role}</p>
+            <p className="text-yellowDeep font-semibold mt-0.5">{r.role}</p>
             <p className="text-ink-soft mt-2 leading-relaxed max-w-xl">
               {r.highlight ? (
                 <>
-                  {r.body} <span className="font-semibold text-orangeDeep">{r.highlight}</span>.
+                  {r.body} <span className="font-semibold text-yellowDeep">{r.highlight}</span>.
                 </>
               ) : (
                 r.body
@@ -99,6 +102,7 @@ export default function Experience() {
             </p>
           </motion.div>
         ))}
+        </div>
       </div>
     </section>
   );

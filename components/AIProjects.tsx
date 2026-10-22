@@ -91,7 +91,7 @@ export default function AIProjects() {
 
               <div className="flex flex-col gap-2 flex-1">
                 <h3 className="font-bold text-2xl leading-tight">{p.name}</h3>
-                <p className="text-orangeDeep font-semibold text-sm">{p.tagline}</p>
+                <p className="text-yellowDeep font-semibold text-sm">{p.tagline}</p>
                 <p className="text-ink-soft leading-relaxed text-sm flex-1">{p.body}</p>
                 <div className="flex flex-wrap gap-3 mt-2">
                   {p.demoHref && (
@@ -109,7 +109,7 @@ export default function AIProjects() {
                       href={p.phHref}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="poster-meta font-bold text-ink-soft hover:text-orangeDeep transition-colors w-fit"
+                      className="poster-meta font-bold text-ink-soft hover:text-yellowDeep transition-colors w-fit"
                     >
                       Product Hunt ↗
                     </a>

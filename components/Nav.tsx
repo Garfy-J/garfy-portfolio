@@ -60,7 +60,7 @@ export default function Nav() {
                 href={`#${s.id}`}
                 onClick={() => setOpen(false)}
                 className={`poster-meta font-bold ${
-                  active === s.id ? "text-orangeDeep" : "text-ink-soft hover:text-ink"
+                  active === s.id ? "text-yellowDeep" : "text-ink-soft hover:text-ink"
                 }`}
               >
                 {s.label}
@@ -81,9 +81,9 @@ export default function Nav() {
             <a
               key={s.id}
               href={`#${s.id}`}
-              className={`poster-meta block pl-4 pr-2 py-1.5 font-bold border-l-2 transition-colors truncate ${
+              className={`lamp-glow ${isActive ? "is-lit" : ""} poster-meta block pl-4 pr-2 py-1.5 font-bold border-l-2 transition-colors truncate ${
                 isActive
-                  ? "border-orange text-orangeDeep"
+                  ? "border-yellow text-yellowDeep"
                   : "border-transparent text-ink-soft hover:text-ink hover:border-rule"
               }`}
             >

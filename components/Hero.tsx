@@ -44,7 +44,7 @@ export default function Hero() {
 
       <div className="relative max-w-5xl">
         <motion.div initial="hidden" animate="show" custom={0} variants={fadeUp}>
-          <span className="poster-meta text-orangeDeep font-bold">
+          <span className="poster-meta text-yellowDeep font-bold">
             Remote · Multi-Discipline Strategist
           </span>
         </motion.div>
@@ -64,7 +64,7 @@ export default function Hero() {
           animate="show"
           custom={2}
           variants={fadeUp}
-          className="font-hand text-3xl sm:text-4xl text-orangeDeep mt-2 mb-8 -rotate-1"
+          className="font-hand text-3xl sm:text-4xl text-yellowDeep mt-2 mb-8 -rotate-1"
         >
           — everyone calls me Garfy
         </motion.p>
@@ -76,7 +76,7 @@ export default function Hero() {
           variants={fadeUp}
           className="max-w-2xl text-lg sm:text-xl text-ink-soft leading-relaxed mb-10"
         >
-          A <span className="highlight-orange font-semibold text-ink">multi-background brand &amp; integrated marketing strategist</span> —{" "}
+          A <span className="highlight-yellow font-semibold text-ink">multi-background brand &amp; integrated marketing strategist</span> —{" "}
           <span className="font-semibold text-ink">10+ years across Greater China, Japan, Taiwan and APAC</span>,
           fluent in English and Mandarin, with limited working proficiency in Japanese for client-facing work. I&rsquo;ve worked
           <span className="font-semibold text-ink"> auto, luxury, entertainment, outdoor, hospitality and tech</span>{" "}
@@ -93,13 +93,13 @@ export default function Hero() {
         >
           <a
             href="#case-studies"
-            className="bg-orange text-ink font-display font-bold text-sm uppercase tracking-wide px-6 py-3.5 rounded-full hover:bg-ink hover:text-paper transition-colors"
+            className="lamp-glow bg-yellow text-ink font-display font-bold text-sm uppercase tracking-wide px-6 py-3.5 rounded-full hover:bg-ink hover:text-paper transition-colors"
           >
             View case studies
           </a>
           <a
             href="#ai-projects"
-            className="border-2 border-ink font-display font-bold text-sm uppercase tracking-wide px-6 py-3.5 rounded-full hover:border-orange hover:text-orangeDeep transition-colors"
+            className="border-2 border-ink font-display font-bold text-sm uppercase tracking-wide px-6 py-3.5 rounded-full hover:border-yellow hover:text-yellowDeep transition-colors"
           >
             Self-built AI products
           </a>
@@ -118,7 +118,7 @@ export default function Hero() {
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="poster-meta text-ink-soft hover:text-orangeDeep transition-colors"
+              className="poster-meta text-ink-soft hover:text-yellowDeep transition-colors"
             >
               {l.label} ↗
             </a>

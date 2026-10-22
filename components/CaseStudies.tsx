@@ -220,7 +220,7 @@ function CardVisual({ s }: { s: Study }) {
         {bars.map((_, i) => (
           <div
             key={i}
-            className={`w-2 ${i === 17 ? "bg-orange" : "bg-ink/15"}`}
+            className={`w-2 ${i === 17 ? "bg-yellow" : "bg-ink/15"}`}
             style={{ height: `${18 + i * 4}%` }}
           />
         ))}
@@ -309,7 +309,7 @@ export default function CaseStudies() {
                   href={s.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="poster-meta font-bold text-orangeDeep hover:text-ink transition-colors w-fit mt-1"
+                  className="poster-meta font-bold text-yellowDeep hover:text-ink transition-colors w-fit mt-1"
                 >
                   {s.linkLabel} ↗
                 </a>

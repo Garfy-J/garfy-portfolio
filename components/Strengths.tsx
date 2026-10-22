@@ -48,9 +48,9 @@ export default function Strengths() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
             transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="bg-paper p-8 sm:p-10 flex flex-col gap-4 border-2 border-ink rounded-3xl border-t-8 border-t-orange"
+            className="bg-paper p-8 sm:p-10 flex flex-col gap-4 border-2 border-ink rounded-3xl border-t-8 border-t-yellow"
           >
-            <span className="font-mono text-xs font-bold text-orangeDeep">{p.n}</span>
+            <span className="font-mono text-xs font-bold text-yellowDeep">{p.n}</span>
             <h3 className="font-display font-bold text-2xl sm:text-3xl leading-[0.98]">
               {p.title}
             </h3>
@@ -77,7 +77,7 @@ export function SectionHeading({
       transition={{ duration: 0.5 }}
       className="relative"
     >
-      <span className="font-mono text-xs uppercase tracking-[0.25em] text-orangeDeep font-bold">
+      <span className="font-mono text-xs uppercase tracking-[0.25em] text-yellowDeep font-bold">
         {eyebrow}
       </span>
       <h2 className="font-display font-extrabold text-5xl sm:text-6xl leading-[0.98] mt-2">{title}</h2>
