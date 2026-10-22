@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { SectionHeading } from "./Strengths";
 import BrandMark, { type Brand } from "./logos/BrandMark";
 import TextLogo from "./logos/TextLogo";
+import Section from "./Section";
 
 type Visual =
   | { kind: "photo"; src: string }
@@ -237,28 +238,26 @@ function CardVisual({ s }: { s: Study }) {
     );
   }
 
-  // studio fallback — grain + slow Ken Burns zoom on the logo cluster, letterbox bars
+  // studio fallback — halftone field + slow Ken Burns zoom on the logo cluster
   return (
-    <div className="absolute inset-0 bg-black overflow-hidden">
-      <div className="absolute top-0 inset-x-0 h-[10%] bg-black z-10" />
-      <div className="absolute bottom-0 inset-x-0 h-[10%] bg-black z-10" />
+    <div className="absolute inset-0 bg-paper-2 flex items-center justify-center overflow-hidden">
+      <div className="halftone absolute inset-0 opacity-[0.12]" />
       <motion.div
-        className="absolute inset-0 flex items-center justify-center gap-6"
+        className="relative flex items-center justify-center gap-6"
         animate={{ scale: [1, 1.08, 1] }}
         transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
       >
-        <BrandMark brand="universal" className="h-10 w-auto text-white" />
-        <BrandMark brand="sony" className="h-8 w-auto text-white" />
-        <BrandMark brand="warnerbros" className="h-12 w-auto text-white" />
+        <BrandMark brand="universal" className="h-10 w-auto text-ink" />
+        <BrandMark brand="sony" className="h-8 w-auto text-ink" />
+        <BrandMark brand="warnerbros" className="h-12 w-auto text-ink" />
       </motion.div>
-      <div className="grain absolute inset-0" />
     </div>
   );
 }
 
 export default function CaseStudies() {
   return (
-    <section id="case-studies" className="px-6 sm:px-12 lg:px-24 py-24 sm:py-32 bg-paper-2">
+    <Section id="case-studies" bg="paper-2">
       <SectionHeading eyebrow="Selected engagements" title="Case Studies" />
       <p className="text-ink-soft max-w-2xl mt-4">
         A snapshot of the range: automotive, luxury, entertainment, outdoor,
@@ -279,28 +278,28 @@ export default function CaseStudies() {
             <div className="relative aspect-[4/3] overflow-hidden bg-paper-2">
               <CardVisual s={s} />
 
-              <div className="absolute top-3 left-3 z-20 flex items-center gap-2 bg-black/75 px-2 py-1">
+              <div className="absolute top-3 left-3 z-20 flex items-center gap-2 bg-paper/90 px-2 py-1">
                 {s.logos?.map((b) => (
-                  <BrandMark key={b} brand={b} className="h-4 w-auto max-w-[3rem] text-white" />
+                  <BrandMark key={b} brand={b} className="h-4 w-auto max-w-[3rem] text-ink" />
                 ))}
-                {s.textLogo && <TextLogo name={s.textLogo} className="text-sm text-white" />}
+                {s.textLogo && <TextLogo name={s.textLogo} className="text-sm text-ink" />}
               </div>
 
-              <span className="poster-meta absolute top-3 right-3 z-20 text-white bg-black/75 px-2 py-1">
+              <span className="poster-meta absolute top-3 right-3 z-20 text-rust bg-paper/90 px-2 py-1">
                 {s.tag}
               </span>
 
               <span className="callout-pill absolute bottom-3 left-3 z-20">{s.pill}</span>
 
               {i === 0 && (
-                <span className="running-label poster-meta absolute top-16 bottom-16 right-3 z-20 text-white/80 hidden sm:block">
+                <span className="running-label poster-meta absolute top-16 bottom-16 right-3 z-20 text-ink bg-paper/70 px-1 hidden sm:block">
                   Totem · Report · 2026
                 </span>
               )}
             </div>
 
             <div className="flex flex-col gap-2 px-5 pb-6 flex-1">
-              <h4 className="font-display font-bold text-xl leading-[0.98]">{s.title}</h4>
+              <h3 className="font-display font-bold text-2xl sm:text-3xl leading-[0.98]">{s.title}</h3>
               <p className="poster-meta text-ink-soft whitespace-normal">{s.client}</p>
               <p className="text-ink-soft leading-relaxed text-sm line-clamp-4">{s.body}</p>
               <p className="poster-meta text-ink-soft/70 whitespace-normal">{s.meta}</p>
@@ -318,6 +317,6 @@ export default function CaseStudies() {
           </motion.article>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

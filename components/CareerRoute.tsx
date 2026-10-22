@@ -124,7 +124,7 @@ export default function CareerRoute({ className = "" }: { className?: string }) 
               cx="10"
               cy={s.y}
               r={isLit ? 1.6 : 1}
-              fill="var(--yellow)"
+              fill={isLit ? "var(--yellow)" : "var(--olive)"}
               opacity={isLit ? 1 : 0.5}
               style={isLit ? { filter: "drop-shadow(0 0 2.5px var(--lamp-glow))" } : undefined}
             />

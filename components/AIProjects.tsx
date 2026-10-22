@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "./Strengths";
+import Section from "./Section";
 import AeroQueueDemo from "./ai-demos/AeroQueueDemo";
 import TabiDemo from "./ai-demos/TabiDemo";
 import LocalPulseDemo from "./ai-demos/LocalPulseDemo";
@@ -59,7 +60,7 @@ const PROJECTS: {
 
 export default function AIProjects() {
   return (
-    <section id="ai-projects" className="px-6 sm:px-12 lg:px-24 py-24 sm:py-32 relative">
+    <Section id="ai-projects" bg="paper">
       <SectionHeading eyebrow="Strategist who also ships" title="Self-Built AI Projects" />
       <p className="text-ink-soft max-w-2xl mt-4">
         Outside client work, I design, build and launch full products myself —
@@ -68,7 +69,7 @@ export default function AIProjects() {
         product&rsquo;s own UI, built in code.
       </p>
 
-      <div className="mt-16 grid lg:grid-cols-3 gap-8">
+      <div className="mt-14 grid lg:grid-cols-3 gap-8">
         {PROJECTS.map((p, i) => {
           const Demo = p.demo;
           return (
@@ -83,14 +84,14 @@ export default function AIProjects() {
               <div className="relative">
                 <Demo />
                 {p.label && (
-                  <span className="poster-meta absolute top-3 left-3 z-10 bg-black text-white px-2 py-1">
+                  <span className="poster-meta absolute top-3 left-3 z-10 bg-rust text-paper px-2 py-1">
                     {p.label}
                   </span>
                 )}
               </div>
 
               <div className="flex flex-col gap-2 flex-1">
-                <h3 className="font-bold text-2xl leading-tight">{p.name}</h3>
+                <h3 className="font-display font-bold text-2xl sm:text-3xl leading-[0.98]">{p.name}</h3>
                 <p className="text-yellowDeep font-semibold text-sm">{p.tagline}</p>
                 <p className="text-ink-soft leading-relaxed text-sm flex-1">{p.body}</p>
                 <div className="flex flex-wrap gap-3 mt-2">
@@ -120,6 +121,6 @@ export default function AIProjects() {
           );
         })}
       </div>
-    </section>
+    </Section>
   );
 }

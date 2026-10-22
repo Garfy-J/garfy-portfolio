@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Section from "./Section";
 
 const PILLARS = [
   {
@@ -31,7 +32,7 @@ const PILLARS = [
 
 export default function Strengths() {
   return (
-    <section id="strengths" className="relative px-6 sm:px-12 lg:px-24 py-24 sm:py-32 overflow-hidden">
+    <Section id="strengths" bg="paper-2" className="overflow-hidden">
       <span
         className="outline-type absolute -top-4 right-0 sm:right-8 text-[30vw] sm:text-[18vw] select-none"
         aria-hidden="true"
@@ -40,7 +41,7 @@ export default function Strengths() {
       </span>
 
       <SectionHeading eyebrow="Why work with me" title="Strengths" />
-      <div className="relative grid sm:grid-cols-2 gap-6 mt-12">
+      <div className="relative grid sm:grid-cols-2 gap-6 mt-14">
         {PILLARS.map((p, i) => (
           <motion.div
             key={p.n}
@@ -58,7 +59,7 @@ export default function Strengths() {
           </motion.div>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }
 

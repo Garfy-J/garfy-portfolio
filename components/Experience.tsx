@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "./Strengths";
 import CareerRoute from "./CareerRoute";
+import Section from "./Section";
 
 const ROLES = [
   {
@@ -65,7 +66,7 @@ const ROLES = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="px-6 sm:px-12 lg:px-24 py-24 sm:py-32">
+    <Section id="experience" bg="paper">
       <SectionHeading eyebrow="The long version" title="Experience" />
 
       <div className="mt-14 flex gap-2 sm:gap-6 lg:gap-10">
@@ -87,7 +88,7 @@ export default function Experience() {
               aria-hidden="true"
             />
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h3 className="font-display font-bold text-2xl">{r.org}</h3>
+              <h3 className="font-display font-bold text-2xl sm:text-3xl leading-[0.98]">{r.org}</h3>
               {r.when && <span className="poster-meta text-ink-soft">{r.when}</span>}
             </div>
             <p className="text-yellowDeep font-semibold mt-0.5">{r.role}</p>
@@ -104,6 +105,6 @@ export default function Experience() {
         ))}
         </div>
       </div>
-    </section>
+    </Section>
   );
 }

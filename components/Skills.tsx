@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { SectionHeading } from "./Strengths";
 import BrandMark, { type Brand } from "./logos/BrandMark";
+import Section from "./Section";
 
 const GROUPS: {
   title: string;
@@ -58,7 +59,7 @@ const GROUPS: {
 
 export default function Skills() {
   return (
-    <section id="skills" className="px-6 sm:px-12 lg:px-24 py-24 sm:py-32 bg-paper-2">
+    <Section id="skills" bg="paper-2">
       <SectionHeading eyebrow="Toolkit" title="Skills" />
       <div className="mt-14 grid lg:grid-cols-3 gap-10">
         {GROUPS.map((g, i) => (
@@ -86,6 +87,6 @@ export default function Skills() {
           </motion.div>
         ))}
       </div>
-    </section>
+    </Section>
   );
 }

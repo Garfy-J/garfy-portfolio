@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import CharacterCanvas from "./contact-character/CharacterCanvas";
+import { motion } from "framer-motion";
+import Section from "./Section";
 
 const LINKS = [
   { label: "LinkedIn", href: "https://www.linkedin.com/in/juchingw" },
@@ -16,10 +15,8 @@ const LINKS = [
 ];
 
 export default function Contact() {
-  const [linkedInHover, setLinkedInHover] = useState(false);
-
   return (
-    <section id="contact" className="px-6 sm:px-12 lg:px-24 py-24 sm:py-36">
+    <Section id="contact" bg="paper-2">
       <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -29,12 +26,12 @@ export default function Contact() {
           className="max-w-3xl flex-1"
         >
           <span className="poster-meta text-yellowDeep font-bold">Let&rsquo;s talk</span>
-          <h2 className="font-display font-extrabold text-5xl sm:text-7xl leading-[0.98] mt-3">
+          <h2 className="font-display font-extrabold text-5xl sm:text-6xl leading-[0.98] mt-3">
             Remote-first.
             <br />
             Working with teams everywhere.
           </h2>
-          <p className="text-ink-soft text-lg mt-6 max-w-xl leading-relaxed">
+          <p className="text-ink-soft text-lg sm:text-xl mt-6 max-w-xl leading-relaxed">
             Open to brand strategy engagements, multi-market advisory, and
             conversations about building AI-assisted products. Reach out through
             LinkedIn — that&rsquo;s the fastest way to find me.
@@ -47,8 +44,6 @@ export default function Contact() {
                 href={l.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                onMouseEnter={() => l.label === "LinkedIn" && setLinkedInHover(true)}
-                onMouseLeave={() => l.label === "LinkedIn" && setLinkedInHover(false)}
                 className="poster-meta text-base text-ink hover:text-yellowDeep transition-colors"
               >
                 {l.label} ↗
@@ -57,22 +52,55 @@ export default function Contact() {
           </div>
         </motion.div>
 
-        <div className="relative shrink-0 w-full max-w-xs sm:max-w-sm">
-          <CharacterCanvas lookAtTarget={linkedInHover ? "linkedin" : null} />
-          <AnimatePresence>
-            {linkedInHover && (
-              <motion.div
-                initial={{ opacity: 0, scale: 0.8, y: 8 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.8 }}
-                transition={{ duration: 0.2 }}
-                className="callout-pill absolute top-[14%] left-1/2 -translate-x-1/2"
-              >
-                Let&rsquo;s talk!
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-80px" }}
+          transition={{ duration: 0.45 }}
+          className="relative shrink-0 w-full lg:w-auto flex justify-center"
+        >
+          <div className="relative h-[300px] sm:h-[420px] aspect-[567/756]">
+            {/* soft glow behind upper body */}
+            <div
+              className="absolute left-1/2 top-[8%] w-[85%] aspect-square -translate-x-1/2 rounded-full pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle, color-mix(in srgb, var(--lamp-glow) 60%, transparent) 0%, transparent 70%)",
+              }}
+              aria-hidden="true"
+            />
+
+            {/* floor shadow */}
+            <div
+              className="absolute left-1/2 bottom-[2%] w-[55%] h-[7%] -translate-x-1/2 rounded-full bg-ink/15 blur-md"
+              aria-hidden="true"
+            />
+
+            <picture>
+              <source media="(prefers-reduced-motion: reduce)" srcSet="/images/garfy-character-still.webp" />
+              {/* plain img, not next/image: animated WebP needs to stay animated */}
+              <img
+                src="/images/garfy-character.webp"
+                alt="Illustration of Garfy"
+                width={567}
+                height={756}
+                loading="lazy"
+                decoding="async"
+                className="relative w-full h-full object-contain"
+              />
+            </picture>
+
+            <motion.span
+              initial={{ opacity: 0, scale: 0.8, y: 8 }}
+              whileInView={{ opacity: 1, scale: 1, y: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{ duration: 0.3, delay: 0.5 }}
+              className="callout-pill absolute top-[6%] right-[2%] sm:right-[-6%]"
+            >
+              Let&rsquo;s talk!
+            </motion.span>
+          </div>
+        </motion.div>
       </div>
 
       <footer className="mt-24 pt-6 border-t border-rule flex flex-wrap items-center justify-between gap-4">
@@ -83,6 +111,6 @@ export default function Contact() {
           © {new Date().getFullYear()} · Built with Claude
         </span>
       </footer>
-    </section>
+    </Section>
   );
 }

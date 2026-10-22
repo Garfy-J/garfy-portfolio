@@ -4,6 +4,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionHeading } from "./Strengths";
 import AlpinePeaks from "./AlpinePeaks";
+import Section from "./Section";
 
 const SPOTIFY_URL = "https://open.spotify.com/artist/0V5ypbQRfW3GCsjlZez6gs";
 const CHANNEL_URL = "https://www.youtube.com/@garfieldw1970";
@@ -26,7 +27,7 @@ const lineUp = {
 
 export default function MusicProduction() {
   return (
-    <section id="music" className="px-6 sm:px-12 lg:px-24 py-24 sm:py-32">
+    <Section id="music" bg="paper-2">
       <SectionHeading eyebrow="Beyond marketing" title="Film & Music" />
       <p className="text-ink-soft max-w-2xl mt-4 leading-relaxed">
         Where strategy takes a back seat — filmmaking and music production,
@@ -46,32 +47,31 @@ export default function MusicProduction() {
           href="https://www.youtube.com/watch?v=nVHZ1z2JE0Y"
           target="_blank"
           rel="noopener noreferrer"
-          className="group relative mt-3 block aspect-video overflow-hidden rounded-xl bg-black"
+          className="group relative mt-3 block aspect-video overflow-hidden rounded-xl bg-paper-2"
         >
           <div className="absolute inset-0 overflow-hidden">
             <Image
               src="/images/film/xichong.webp"
               alt="溪涌生活节 · Xichong Life Festival brand film"
               fill
-              className="object-cover animate-ken-burns opacity-80 group-hover:opacity-95 transition-opacity"
+              className="object-cover animate-ken-burns opacity-90 group-hover:opacity-100 transition-opacity"
               sizes="(min-width: 640px) 768px, 100vw"
             />
           </div>
-          <div className="grain absolute inset-0" />
-          <div className="absolute top-0 inset-x-0 h-[8%] bg-black" />
-          <div className="absolute bottom-0 inset-x-0 h-[8%] bg-black" />
+          <div className="grain absolute inset-0 opacity-40" />
+          <div className="absolute bottom-0 inset-x-0 h-2/5 bg-gradient-to-t from-paper-2 via-paper-2/70 to-transparent" />
 
           <motion.div
             initial="hidden"
             whileInView="show"
             viewport={{ once: true }}
             variants={titleLines}
-            className="absolute left-5 sm:left-8 bottom-10 sm:bottom-12"
+            className="absolute left-5 sm:left-8 bottom-6 sm:bottom-8"
           >
-            <motion.h3 variants={lineUp} className="font-display font-bold text-2xl sm:text-4xl text-white leading-[0.98]">
+            <motion.h3 variants={lineUp} className="font-display font-bold text-2xl sm:text-4xl text-ink leading-[0.98]">
               溪涌生活节
             </motion.h3>
-            <motion.span variants={lineUp} className="poster-meta text-white/80 block mt-1">
+            <motion.span variants={lineUp} className="poster-meta text-ink-soft block mt-1">
               Xichong Life Festival
             </motion.span>
           </motion.div>
@@ -87,7 +87,7 @@ export default function MusicProduction() {
         className="mt-16 max-w-3xl"
       >
         <span className="poster-meta text-yellowDeep font-bold">AI-directed · Sora</span>
-        <h3 className="font-bold text-xl sm:text-2xl mt-2">
+        <h3 className="font-display font-bold text-2xl sm:text-3xl leading-[0.98] mt-2">
           AI-directed visual-script thriller shorts, ten seconds at a time.
         </h3>
 
@@ -102,18 +102,18 @@ export default function MusicProduction() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: i * 0.06 }}
-              className="group relative aspect-[9/16] overflow-hidden rounded-lg bg-black block"
+              className="group relative aspect-[9/16] overflow-hidden rounded-lg bg-paper-2 block"
             >
               <Image
                 src={`/images/film/thriller-${s.id}.webp`}
                 alt={s.caption}
                 fill
-                className="object-cover opacity-70 group-hover:opacity-90 transition-opacity animate-ken-burns"
+                className="object-cover opacity-90 group-hover:opacity-100 transition-opacity animate-ken-burns"
                 sizes="200px"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-black/40" />
-              <div className="grain absolute inset-0" />
-              <span className="absolute bottom-2 left-2 right-2 poster-meta text-white text-[9px] leading-tight whitespace-normal">
+              <div className="absolute inset-0 bg-gradient-to-t from-paper-2 via-paper-2/10 to-transparent" />
+              <div className="grain absolute inset-0 opacity-40" />
+              <span className="absolute bottom-2 left-2 right-2 poster-meta text-ink text-[9px] leading-tight whitespace-normal">
                 {s.caption}
               </span>
             </motion.a>
@@ -159,7 +159,7 @@ export default function MusicProduction() {
             ))}
           </div>
           <div className="absolute top-4 left-5 sm:left-8">
-            <span className="font-display font-bold text-xl sm:text-2xl text-ink block">
+            <span className="font-display font-bold text-2xl sm:text-3xl leading-[0.98] text-ink block">
               Released as GARFY
             </span>
             <span className="poster-meta text-ink-soft group-hover:text-yellowDeep transition-colors">
@@ -168,6 +168,6 @@ export default function MusicProduction() {
           </div>
         </a>
       </motion.div>
-    </section>
+    </Section>
   );
 }

@@ -26,17 +26,17 @@ export default function MediumStage() {
   const current = ARTICLES[i];
 
   return (
-    <DemoStage bg="#121212">
-      <div className="h-full flex flex-col text-white">
+    <DemoStage bg="var(--paper-2)">
+      <div className="h-full flex flex-col text-ink">
         <div className="flex items-center gap-1.5">
-          <SimpleIcon icon={siMedium} className="w-4 h-4 text-white" />
-          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-white/60">
+          <SimpleIcon icon={siMedium} className="w-4 h-4 text-ink" />
+          <span className="font-mono text-[9px] uppercase tracking-[0.2em] text-ink-soft">
             Field notes
           </span>
         </div>
 
         <div className="flex-1 flex items-center gap-3 mt-3">
-          <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-md overflow-hidden bg-white/10">
+          <div className="relative w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-md overflow-hidden bg-paper">
             <AnimatePresence mode="wait">
               {current.image ? (
                 <motion.div
@@ -57,7 +57,7 @@ export default function MediumStage() {
                   exit={{ opacity: 0 }}
                   className="absolute inset-0 flex items-center justify-center"
                 >
-                  <SimpleIcon icon={siMedium} className="w-6 h-6 text-white/40" />
+                  <SimpleIcon icon={siMedium} className="w-6 h-6 text-ink/30" />
                 </motion.div>
               )}
             </AnimatePresence>
@@ -81,8 +81,8 @@ export default function MediumStage() {
           {ARTICLES.map((_, idx) => (
             <span
               key={idx}
-              className="h-1 rounded-full bg-white transition-all duration-300"
-              style={{ width: idx === i ? "16px" : "6px", opacity: idx === i ? 0.9 : 0.3 }}
+              className="h-1 rounded-full bg-ink transition-all duration-300"
+              style={{ width: idx === i ? "16px" : "6px", opacity: idx === i ? 0.8 : 0.25 }}
             />
           ))}
         </div>
