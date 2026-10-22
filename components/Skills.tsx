@@ -42,7 +42,7 @@ const GROUPS: {
     items: [
       { label: "English — fluent" },
       { label: "Mandarin — fluent" },
-      { label: "Japanese — working proficiency (client-facing use)" },
+      { label: "Japanese — limited working proficiency" },
     ],
   },
   {
@@ -60,7 +60,7 @@ export default function Skills() {
   return (
     <section id="skills" className="px-6 sm:px-12 lg:px-24 py-24 sm:py-32 bg-paper-2">
       <SectionHeading eyebrow="Toolkit" title="Skills" />
-      <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+      <div className="mt-14 grid lg:grid-cols-3 gap-10">
         {GROUPS.map((g, i) => (
           <motion.div
             key={g.title}
@@ -69,12 +69,14 @@ export default function Skills() {
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.35, delay: (i % 3) * 0.06 }}
           >
-            <h3 className="poster-meta mb-4 font-bold text-orange">{g.title}</h3>
+            <h3 className="font-mono text-xs uppercase tracking-[0.2em] mb-4 font-bold text-orangeDeep">
+              {g.title}
+            </h3>
             <ul className="space-y-2">
               {g.items.map((item) => (
                 <li
                   key={item.label}
-                  className="flex items-center gap-2.5 font-semibold text-xl sm:text-2xl leading-snug border-b border-rule pb-2"
+                  className="flex items-center gap-2.5 font-display font-semibold text-xl sm:text-2xl leading-snug border-b-2 border-rule pb-2"
                 >
                   {item.brand && <BrandMark brand={item.brand} className="w-5 h-5 shrink-0" />}
                   {item.label}

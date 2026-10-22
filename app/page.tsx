@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <>
       <Nav />
-      <main>
+      <main className="min-[1440px]:pr-40 pt-16 min-[1440px]:pt-0">
         <Hero />
         <Strengths />
         <Experience />

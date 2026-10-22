@@ -7,17 +7,15 @@ const SCHOOLS = [
   {
     degree: "MSc, E-Business & Innovation",
     school: "Lancaster University",
-    color: "border-orange",
   },
   {
     degree: "BA",
     school: "National Taiwan University",
-    color: "border-sky",
   },
   {
     degree: "Filmmaking Certificate",
     school: "London Film Academy",
-    color: "border-sage",
+    pill: "Artist too",
   },
 ];
 
@@ -29,14 +27,19 @@ export default function Education() {
         {SCHOOLS.map((s, i) => (
           <motion.div
             key={s.school}
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.35, delay: i * 0.06 }}
-            className={`border-t-4 ${s.color} bg-paper-2 p-8 flex flex-col gap-4`}
+            transition={{ duration: 0.4, delay: i * 0.08 }}
+            className="border-2 border-ink rounded-2xl bg-paper p-8 flex flex-col gap-4 relative"
           >
-            <p className="font-bold text-2xl leading-tight">{s.degree}</p>
-            <p className="poster-meta text-ink-soft">{s.school}</p>
+            {s.pill && (
+              <span className="callout-pill absolute -top-4 -right-3 -rotate-6">{s.pill}</span>
+            )}
+            <p className="font-display font-bold text-2xl leading-[0.98]">{s.degree}</p>
+            <p className="font-mono text-xs uppercase tracking-wide text-ink-soft">
+              {s.school}
+            </p>
           </motion.div>
         ))}
       </div>

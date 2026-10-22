@@ -50,9 +50,8 @@ const ROLES = [
   {
     org: "Totem Media",
     role: "Strategy Lead",
-    when: "Current",
-    body: "Leading integrated strategy for international brands — including Intel's B2B and B2C influencer programs across five APAC markets — and contributing to Totem's China Brands Going Global intelligence report.",
-    current: true,
+    when: "Jul 2023 – Aug 2026",
+    body: "Led integrated strategy for international brands — including Intel's B2B and B2C influencer programs across five APAC markets — and contributed to Totem's China Brands Going Global intelligence report.",
   },
   {
     org: "Independent",
@@ -79,20 +78,20 @@ export default function Experience() {
             className="relative pl-8 sm:pl-10 pb-10 border-l-2 border-rule last:pb-0 last:border-l-0"
           >
             <span
-              className={`absolute -left-[5px] top-1 w-2.5 h-2.5 ${
-                r.current ? "bg-orange" : "bg-ink-soft"
+              className={`absolute -left-[11px] top-1 w-5 h-5 rounded-full border-2 border-ink ${
+                r.current ? "bg-orange" : "bg-paper-2"
               }`}
               aria-hidden="true"
             />
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h3 className="font-bold text-2xl">{r.org}</h3>
+              <h3 className="font-display font-bold text-2xl">{r.org}</h3>
               {r.when && <span className="poster-meta text-ink-soft">{r.when}</span>}
             </div>
-            <p className="text-orange font-semibold mt-0.5">{r.role}</p>
+            <p className="text-orangeDeep font-semibold mt-0.5">{r.role}</p>
             <p className="text-ink-soft mt-2 leading-relaxed max-w-xl">
               {r.highlight ? (
                 <>
-                  {r.body} <span className="font-semibold text-orange">{r.highlight}</span>.
+                  {r.body} <span className="font-semibold text-orangeDeep">{r.highlight}</span>.
                 </>
               ) : (
                 r.body

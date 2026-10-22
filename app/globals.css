@@ -1,28 +1,24 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #ece7de;
-  --paper-2: #e2dcd0;
-  --ink: #171615;
-  --ink-soft: #5e5a54;
-  --orange: #e4572e;
-  --sky: #8fbbd1;
-  --sage: #a7b596;
-  --stone: #c8c6c1;
-  --rule: #d8d2c4;
+  --paper: #eee7db;
+  --paper-2: #e3dacb;
+  --ink: #26221f;
+  --ink-soft: #6b635a;
+  --orange: #ee7d3b;
+  --orange-deep: #c9561c;
+  --rule: #ded2bf;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --paper: #141312;
-    --paper-2: #1e1c1a;
-    --ink: #eee9e0;
-    --ink-soft: #a59f95;
-    --orange: #f06a40;
-    --sky: #7faac0;
-    --sage: #95a585;
-    --stone: #3a3835;
-    --rule: #332f2a;
+    --paper: #1a1714;
+    --paper-2: #24201c;
+    --ink: #f1eadf;
+    --ink-soft: #b3aa9e;
+    --orange: #f28b4c;
+    --orange-deep: #f59a63;
+    --rule: #3a342c;
   }
 }
 
@@ -32,11 +28,10 @@
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
   --color-orange: var(--orange);
-  --color-sky: var(--sky);
-  --color-sage: var(--sage);
-  --color-stone: var(--stone);
+  --color-orangeDeep: var(--orange-deep);
   --color-rule: var(--rule);
-  --font-display: var(--font-anton);
+  --font-display: var(--font-bricolage);
+  --font-hand: var(--font-caveat);
   --font-body: var(--font-jakarta);
   --font-mono: var(--font-plex-mono);
 }
@@ -68,26 +63,74 @@ button:focus-visible {
   outline-offset: 3px;
 }
 
-/* Tiny monospaced "poster metadata" — corner labels, stamps, eyebrows. */
+/* Tiny monospaced corner/running labels — poster metadata, card-edge tags.
+   No color or white-space here deliberately: this is unlayered CSS, so any
+   `color`/`white-space` set here would always beat Tailwind's layered
+   `text-*`/`whitespace-*` utilities regardless of source order. Pair this
+   class with explicit utilities — e.g. `whitespace-nowrap` where a label
+   must truly stay on one line. */
 .poster-meta {
   font-family: var(--font-mono);
   font-size: 10px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--ink-soft);
-  white-space: nowrap;
 }
 
-/* Display headline leading, tuned tighter than Tailwind's tightest preset. */
-.display-tight {
-  font-family: var(--font-display);
+/* Vertical running text along a card edge. */
+.running-label {
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+/* Halftone dot field — subtle texture behind sections/illustration. */
+.halftone {
+  background-image: radial-gradient(var(--ink) 1px, transparent 1.4px);
+  background-size: 14px 14px;
+}
+
+/* Film grain overlay (Film & Music). */
+.grain {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.35'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+/* Pill-shaped annotation callout, pointing at a visual. */
+.callout-pill {
+  font-family: var(--font-mono);
+  font-size: 11px;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 700;
+  background: var(--orange);
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 0.35rem 0.85rem;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* Oversized outline numeral/word, background decoration. */
+.outline-type {
+  font-family: var(--font-display);
+  -webkit-text-stroke: 1.5px var(--ink);
+  color: transparent;
+  opacity: 0.1;
+  user-select: none;
+  pointer-events: none;
   line-height: 0.85;
+}
+
+.highlight-orange {
+  background: linear-gradient(120deg, color-mix(in srgb, var(--orange) 45%, transparent) 0%, color-mix(in srgb, var(--orange) 45%, transparent) 100%);
+  background-repeat: no-repeat;
+  background-size: 100% 42%;
+  background-position: 0 88%;
 }
 
 ::selection {
   background: var(--orange);
-  color: var(--paper);
+  color: var(--ink);
 }
 
 ::-webkit-scrollbar {
@@ -99,4 +142,32 @@ button:focus-visible {
 ::-webkit-scrollbar-thumb {
   background: var(--rule);
   border-radius: 6px;
+}
+
+/* sun drift — slow, purposeful (Hero / Film & Music illustration) */
+@keyframes sun-drift {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(10px); }
+}
+.animate-sun-drift {
+  animation: sun-drift 12s ease-in-out infinite;
+}
+
+/* slow Ken Burns zoom — film stills */
+@keyframes ken-burns {
+  0% { transform: scale(1.04); }
+  100% { transform: scale(1.16); }
+}
+.animate-ken-burns {
+  animation: ken-burns 14s ease-out infinite alternate;
+}
+
+/* gentle equalizer bars — music waveform */
+@keyframes eq-bounce {
+  0%, 100% { transform: scaleY(0.3); }
+  50% { transform: scaleY(1); }
+}
+.animate-eq {
+  animation: eq-bounce 1.4s ease-in-out infinite;
+  transform-origin: bottom;
 }

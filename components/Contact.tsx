@@ -23,8 +23,8 @@ export default function Contact() {
         transition={{ duration: 0.4 }}
         className="max-w-3xl"
       >
-        <span className="poster-meta text-orange font-bold">Let&rsquo;s talk</span>
-        <h2 className="display-tight text-5xl sm:text-7xl mt-3">
+        <span className="poster-meta text-orangeDeep font-bold">Let&rsquo;s talk</span>
+        <h2 className="font-display font-extrabold text-5xl sm:text-7xl leading-[0.98] mt-3">
           Remote-first.
           <br />
           Working with teams everywhere.
@@ -42,7 +42,7 @@ export default function Contact() {
               href={l.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="poster-meta text-base text-ink hover:text-orange transition-colors"
+              className="poster-meta text-base text-ink hover:text-orangeDeep transition-colors"
             >
               {l.label} ↗
             </a>

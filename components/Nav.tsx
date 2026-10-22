@@ -37,20 +37,42 @@ export default function Nav() {
 
   return (
     <>
-      {/* Mobile toggle */}
-      <button
-        onClick={() => setOpen(!open)}
-        className="fixed top-4 right-4 z-50 sm:hidden bg-ink text-paper poster-meta px-3 py-2"
-        aria-expanded={open}
-        aria-label="Toggle navigation"
-      >
-        {open ? "Close" : "Menu"}
-      </button>
+      {/* Compact top nav — below 1440px */}
+      <div className="fixed top-0 inset-x-0 z-50 min-[1440px]:hidden">
+        <div className="flex items-center justify-between px-6 sm:px-12 py-4 bg-paper/90 backdrop-blur-sm border-b border-rule">
+          <a href="#top" className="poster-meta font-bold text-ink">
+            Garfy
+          </a>
+          <button
+            onClick={() => setOpen(!open)}
+            className="poster-meta font-bold bg-ink text-paper px-3 py-2"
+            aria-expanded={open}
+            aria-label="Toggle navigation"
+          >
+            {open ? "Close" : "Menu"}
+          </button>
+        </div>
+        {open && (
+          <div className="bg-paper-2 border-b border-rule px-6 sm:px-12 py-5 flex flex-wrap gap-x-6 gap-y-3">
+            {SECTIONS.map((s) => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                onClick={() => setOpen(false)}
+                className={`poster-meta font-bold ${
+                  active === s.id ? "text-orangeDeep" : "text-ink-soft hover:text-ink"
+                }`}
+              >
+                {s.label}
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
 
+      {/* Side nav — reserved space, 1440px and up only */}
       <nav
-        className={`fixed z-40 top-0 right-0 h-full sm:h-auto sm:top-1/2 sm:-translate-y-1/2 sm:right-0 flex flex-col justify-center gap-1 transition-transform duration-300 ${
-          open ? "translate-x-0" : "translate-x-full"
-        } sm:translate-x-0 bg-paper-2 sm:bg-transparent w-64 sm:w-auto pt-20 sm:pt-0`}
+        className="hidden min-[1440px]:flex fixed z-40 top-1/2 -translate-y-1/2 right-6 flex-col gap-1 w-36"
         aria-label="Section navigation"
       >
         {SECTIONS.map((s) => {
@@ -59,10 +81,9 @@ export default function Nav() {
             <a
               key={s.id}
               href={`#${s.id}`}
-              onClick={() => setOpen(false)}
-              className={`poster-meta flex items-center gap-2 pl-4 pr-3 py-2 sm:py-1.5 font-bold border-l-2 transition-colors ${
+              className={`poster-meta block pl-4 pr-2 py-1.5 font-bold border-l-2 transition-colors truncate ${
                 isActive
-                  ? "border-orange text-orange"
+                  ? "border-orange text-orangeDeep"
                   : "border-transparent text-ink-soft hover:text-ink hover:border-rule"
               }`}
             >
