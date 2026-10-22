@@ -1,6 +1,5 @@
 import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
-import IndustryMarquee from "@/components/IndustryMarquee";
 import Strengths from "@/components/Strengths";
 import Experience from "@/components/Experience";
 import Skills from "@/components/Skills";
@@ -17,7 +16,6 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        <IndustryMarquee />
         <Strengths />
         <Experience />
         <Skills />

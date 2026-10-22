@@ -72,35 +72,27 @@ export default function Experience() {
         {ROLES.map((r, i) => (
           <motion.div
             key={r.org + r.role}
-            initial={{ opacity: 0, x: -20 }}
+            initial={{ opacity: 0, x: -16 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.4, delay: (i % 4) * 0.06 }}
+            transition={{ duration: 0.35, delay: (i % 4) * 0.05 }}
             className="relative pl-8 sm:pl-10 pb-10 border-l-2 border-rule last:pb-0 last:border-l-0"
           >
             <span
-              className={`absolute -left-[11px] top-1 w-5 h-5 rounded-full border-2 border-ink ${
-                r.current ? "bg-coral" : "bg-yellow"
+              className={`absolute -left-[5px] top-1 w-2.5 h-2.5 ${
+                r.current ? "bg-orange" : "bg-ink-soft"
               }`}
               aria-hidden="true"
             />
             <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <h3 className="font-display font-bold text-2xl">{r.org}</h3>
-              {r.when && (
-                <span className="font-mono text-xs text-ink-soft uppercase tracking-wide">
-                  {r.when}
-                </span>
-              )}
+              <h3 className="font-bold text-2xl">{r.org}</h3>
+              {r.when && <span className="poster-meta text-ink-soft">{r.when}</span>}
             </div>
-            <p className="text-coral font-semibold mt-0.5">{r.role}</p>
+            <p className="text-orange font-semibold mt-0.5">{r.role}</p>
             <p className="text-ink-soft mt-2 leading-relaxed max-w-xl">
               {r.highlight ? (
                 <>
-                  {r.body}{" "}
-                  <span className="highlight-yellow font-semibold text-ink">
-                    {r.highlight}
-                  </span>
-                  .
+                  {r.body} <span className="font-semibold text-orange">{r.highlight}</span>.
                 </>
               ) : (
                 r.body

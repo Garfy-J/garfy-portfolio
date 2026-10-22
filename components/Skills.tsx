@@ -2,42 +2,56 @@
 
 import { motion } from "framer-motion";
 import { SectionHeading } from "./Strengths";
+import BrandMark, { type Brand } from "./logos/BrandMark";
 
-const GROUPS = [
+const GROUPS: {
+  title: string;
+  items: { label: string; brand?: Brand }[];
+}[] = [
   {
     title: "Strategy & Research",
-    color: "text-coral",
     items: [
-      "Brand strategy",
-      "Integrated campaign planning",
-      "Market entry strategy",
-      "Multi-market brand intelligence",
-      "Data analysis & brand ranking",
+      { label: "Brand strategy" },
+      { label: "Integrated campaign planning" },
+      { label: "Market entry strategy" },
+      { label: "Multi-market brand intelligence" },
+      { label: "Data analysis & brand ranking" },
     ],
   },
   {
     title: "Asia Digital Platforms",
-    color: "text-cobalt",
-    items: ["WeChat", "Weibo", "RED (Xiaohongshu)", "Douyin", "Mini Programs"],
+    items: [
+      { label: "WeChat", brand: "wechat" },
+      { label: "Weibo", brand: "weibo" },
+      { label: "RED (Xiaohongshu)", brand: "xiaohongshu" },
+      { label: "Douyin", brand: "douyin" },
+      { label: "Mini Programs" },
+    ],
   },
   {
     title: "Content & Creative",
-    color: "text-teal",
-    items: ["Filmmaking", "Photography", "Art direction", "Copywriting"],
+    items: [
+      { label: "Filmmaking" },
+      { label: "Photography" },
+      { label: "Art direction" },
+      { label: "Copywriting" },
+    ],
   },
   {
     title: "Languages",
-    color: "text-coral",
-    items: ["English — fluent", "Mandarin — fluent", "Japanese — working proficiency (client-facing use)"],
+    items: [
+      { label: "English — fluent" },
+      { label: "Mandarin — fluent" },
+      { label: "Japanese — working proficiency (client-facing use)" },
+    ],
   },
   {
     title: "Build & Ship",
-    color: "text-cobalt",
     items: [
-      "AI-assisted product development",
-      "Next.js / Vercel",
-      "Data scraping & automation",
-      "Product Hunt launches",
+      { label: "AI-assisted product development" },
+      { label: "Next.js / Vercel" },
+      { label: "Data scraping & automation" },
+      { label: "Product Hunt launches" },
     ],
   },
 ];
@@ -50,21 +64,20 @@ export default function Skills() {
         {GROUPS.map((g, i) => (
           <motion.div
             key={g.title}
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
+            transition={{ duration: 0.35, delay: (i % 3) * 0.06 }}
           >
-            <h3 className={`font-mono text-xs uppercase tracking-[0.2em] mb-4 font-bold ${g.color}`}>
-              {g.title}
-            </h3>
+            <h3 className="poster-meta mb-4 font-bold text-orange">{g.title}</h3>
             <ul className="space-y-2">
               {g.items.map((item) => (
                 <li
-                  key={item}
-                  className="font-display font-semibold text-xl sm:text-2xl leading-snug border-b-2 border-rule pb-2"
+                  key={item.label}
+                  className="flex items-center gap-2.5 font-semibold text-xl sm:text-2xl leading-snug border-b border-rule pb-2"
                 >
-                  {item}
+                  {item.brand && <BrandMark brand={item.brand} className="w-5 h-5 shrink-0" />}
+                  {item.label}
                 </li>
               ))}
             </ul>

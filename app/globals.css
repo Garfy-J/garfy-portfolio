@@ -1,15 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --paper: #fff7ec;
-  --paper-2: #ffedd6;
-  --ink: #17131a;
-  --ink-soft: #55505c;
-  --coral: #ff5a3c;
-  --cobalt: #2a4bff;
-  --yellow: #ffc53d;
-  --teal: #14b8a6;
-  --rule: #e9dcc4;
+  --paper: #ece7de;
+  --paper-2: #e2dcd0;
+  --ink: #171615;
+  --ink-soft: #5e5a54;
+  --orange: #e4572e;
+  --sky: #8fbbd1;
+  --sage: #a7b596;
+  --stone: #c8c6c1;
+  --rule: #d8d2c4;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #141312;
+    --paper-2: #1e1c1a;
+    --ink: #eee9e0;
+    --ink-soft: #a59f95;
+    --orange: #f06a40;
+    --sky: #7faac0;
+    --sage: #95a585;
+    --stone: #3a3835;
+    --rule: #332f2a;
+  }
 }
 
 @theme inline {
@@ -17,13 +31,12 @@
   --color-paper-2: var(--paper-2);
   --color-ink: var(--ink);
   --color-ink-soft: var(--ink-soft);
-  --color-coral: var(--coral);
-  --color-cobalt: var(--cobalt);
-  --color-yellow: var(--yellow);
-  --color-teal: var(--teal);
+  --color-orange: var(--orange);
+  --color-sky: var(--sky);
+  --color-sage: var(--sage);
+  --color-stone: var(--stone);
   --color-rule: var(--rule);
-  --font-display: var(--font-bricolage);
-  --font-hand: var(--font-caveat);
+  --font-display: var(--font-anton);
   --font-body: var(--font-jakarta);
   --font-mono: var(--font-plex-mono);
 }
@@ -51,68 +64,29 @@ body {
 
 a:focus-visible,
 button:focus-visible {
-  outline: 3px solid var(--coral);
+  outline: 2px solid var(--orange);
   outline-offset: 3px;
 }
 
-/* halftone dot texture — playful, poster-like */
-.halftone {
-  background-image: radial-gradient(var(--ink) 1px, transparent 1.4px);
-  background-size: 14px 14px;
-  opacity: 0.06;
-}
-
-/* sticker-style badge — the page's signature motif */
-.badge {
-  font-family: var(--font-hand);
-  font-weight: 700;
-  border-radius: 999px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+/* Tiny monospaced "poster metadata" — corner labels, stamps, eyebrows. */
+.poster-meta {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink-soft);
   white-space: nowrap;
-  user-select: none;
-  border: 2px dashed rgba(23, 19, 26, 0.35);
-  box-shadow: 2px 3px 0 rgba(23, 19, 26, 0.12);
 }
 
-.squiggle-underline {
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='12' viewBox='0 0 120 12'%3E%3Cpath d='M2 8 Q 15 2, 30 7 T 60 6 T 90 8 T 118 5' stroke='%23FF5A3C' stroke-width='2.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
-  background-repeat: repeat-x;
-  background-position: bottom;
-  background-size: 120px 12px;
-}
-
-.tape {
-  position: absolute;
-  height: 26px;
-  width: 90px;
-  background: rgba(255, 90, 60, 0.18);
-  border: 1px solid rgba(23, 19, 26, 0.08);
-  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-}
-
-.highlight-coral {
-  background: linear-gradient(120deg, rgba(255, 90, 60, 0.28) 0%, rgba(255, 90, 60, 0.28) 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 42%;
-  background-position: 0 88%;
-}
-.highlight-yellow {
-  background: linear-gradient(120deg, rgba(255, 197, 61, 0.55) 0%, rgba(255, 197, 61, 0.55) 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 42%;
-  background-position: 0 88%;
-}
-.highlight-teal {
-  background: linear-gradient(120deg, rgba(20, 184, 166, 0.28) 0%, rgba(20, 184, 166, 0.28) 100%);
-  background-repeat: no-repeat;
-  background-size: 100% 42%;
-  background-position: 0 88%;
+/* Display headline leading, tuned tighter than Tailwind's tightest preset. */
+.display-tight {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  line-height: 0.85;
 }
 
 ::selection {
-  background: var(--coral);
+  background: var(--orange);
   color: var(--paper);
 }
 
@@ -125,26 +99,4 @@ button:focus-visible {
 ::-webkit-scrollbar-thumb {
   background: var(--rule);
   border-radius: 6px;
-}
-
-/* marquee motion */
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-.animate-marquee {
-  animation: marquee 28s linear infinite;
-}
-
-/* floating blob motion (flat shapes, no gradients) */
-@keyframes float-slow {
-  0%, 100% { transform: translateY(0) rotate(var(--r, 0deg)); }
-  50% { transform: translateY(-14px) rotate(calc(var(--r, 0deg) + 4deg)); }
-}
-.animate-float {
-  animation: float-slow 6s ease-in-out infinite;
 }

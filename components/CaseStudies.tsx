@@ -1,18 +1,37 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { SectionHeading } from "./Strengths";
-import SealStamp from "./SealStamp";
+import BrandMark, { type Brand } from "./logos/BrandMark";
+import TextLogo from "./logos/TextLogo";
 
-const STUDIES = [
+type Block = "sky" | "sage" | "stone" | "orange";
+
+const STUDIES: {
+  tag: string;
+  title: string;
+  client: string;
+  body: string;
+  keyword: string;
+  meta: string;
+  block: Block;
+  logos?: Brand[];
+  textLogo?: string;
+  photo?: string;
+  href?: string;
+  linkLabel?: string;
+}[] = [
   {
     tag: "Report",
     title: "China Brands Going Global 2026",
     client: "Totem Media × Rakuten Insight",
     body:
       "Totem's flagship annual report, co-published with Rakuten Insight and featured in Campaign Asia. Data analysis across 451 Chinese brands, full bilingual translation of a 99-slide report (EN → Simplified Chinese), and a full brand-database re-ranking. Now the primary door-opener for Totem's China-outbound business development.",
-    stamp: "flagship",
-    color: "yellow" as const,
+    keyword: "Report",
+    meta: "Totem Media × Rakuten Insight / 451 Brands / 99 Slides",
+    block: "sky",
+    logos: ["rakuten"],
     href: "https://www.talktototem.com/insights/reports/china-brands-global-2026",
     linkLabel: "Read the report",
   },
@@ -22,8 +41,11 @@ const STUDIES = [
     client: "Intel",
     body:
       "Ran strategy and account management across two fronts — B2C (Intel Gaming Alliance and Mobile Go-Getter AI-PC creator content) and B2B (Intel vPro thought-leadership for enterprise and IT audiences) — across five markets: India, China, Korea, Japan and Taiwan.",
-    stamp: "5 markets",
-    color: "cobalt" as const,
+    keyword: "5 Markets",
+    meta: "Intel / IN · CN · KR · JP · TW / B2B + B2C",
+    block: "orange",
+    logos: ["intel"],
+    photo: "/images/intel.jpg",
     href: "https://www.youtube.com/watch?v=Q_s8BsXPFzs",
     linkLabel: "Watch the work",
   },
@@ -33,16 +55,20 @@ const STUDIES = [
     client: "Milleporte K.K., Tokyo",
     body:
       "Led the marketing campaign end to end — content marketing, KOC/KOL influencer marketing, and a website revamp paired with a performance marketing strategy — driving results to a 2,299% ROAS.",
-    stamp: "2,299% ROAS",
-    color: "coral" as const,
+    keyword: "2,299%",
+    meta: "Milleporte K.K., Tokyo / ROAS",
+    block: "sage",
+    textLogo: "Milleporte",
   },
   {
     tag: "Proposal",
     title: "Rare by Design",
     client: "Maserati APAC",
     body: "Campaign strategy proposal for Maserati across the APAC region.",
-    stamp: "proposal",
-    color: "yellow" as const,
+    keyword: "Rare",
+    meta: "Maserati APAC / Proposal",
+    block: "stone",
+    logos: ["maserati"],
   },
   {
     tag: "Advisory",
@@ -50,8 +76,10 @@ const STUDIES = [
     client: "Gore-Tex China",
     body:
       "An 18-slide market deep-dive on China's outdoor category, distilled into a 1-page executive brief.",
-    stamp: "18 slides",
-    color: "teal" as const,
+    keyword: "18 Slides",
+    meta: "Gore-Tex China / 1-Page Brief",
+    block: "sky",
+    logos: ["gore-tex"],
   },
   {
     tag: "Pitch",
@@ -59,8 +87,10 @@ const STUDIES = [
     client: "Capella Hotels",
     body:
       "WeChat Mini Program media proposal built around the 618 shopping festival on a CNY 50K budget.",
-    stamp: "618 festival",
-    color: "cobalt" as const,
+    keyword: "618",
+    meta: "Capella Hotels / WeChat Mini Program / CNY 50K",
+    block: "sage",
+    logos: ["capella"],
   },
   {
     tag: "Entertainment",
@@ -68,8 +98,10 @@ const STUDIES = [
     client: "Universal · Sony · Warner Bros.",
     body:
       "Planning and partnership work with major entertainment studios during my time in Beijing.",
-    stamp: "3 studios",
-    color: "coral" as const,
+    keyword: "3 Studios",
+    meta: "Universal · Sony · Warner Bros. / Beijing",
+    block: "stone",
+    logos: ["universal", "sony", "warnerbros"],
   },
   {
     tag: "Collaboration",
@@ -77,8 +109,10 @@ const STUDIES = [
     client: "Cabana × Archive Editions × Arsham Studio, 2022",
     body:
       "Project-managed ‘Eroded Jupiter,’ a limited-edition collaboration with artist Daniel Arsham — the Eroded Zeus Candle. Responsible for project management, commercial photography, and merchandising planning.",
-    stamp: "ltd. edition",
-    color: "yellow" as const,
+    keyword: "Ltd. Edition",
+    meta: "Cabana × Arsham Studio / 2022",
+    block: "orange",
+    textLogo: "Cabana",
     href: "https://www.instagram.com/p/Cf3mKGKMKfa/",
     linkLabel: "See the collab",
   },
@@ -88,16 +122,18 @@ const STUDIES = [
     client: "Cabana — 3rd Anniversary Limited Edition, 2021",
     body:
       "Creative lead on Cabana's 3rd Anniversary Limited Edition release featuring the Kvadrat/Raf Simons collaboration — including the Zanotta Maggiolina Lounge Chair. Responsible for project management, editorial photography, and social content creation for the limited release.",
-    stamp: "3rd anniv.",
-    color: "teal" as const,
+    keyword: "3rd Anniv.",
+    meta: "Cabana / Kvadrat · Raf Simons / 2021",
+    block: "sky",
+    logos: ["kvadrat"],
   },
 ];
 
-const CARD_BORDER: Record<string, string> = {
-  cobalt: "border-cobalt",
-  coral: "border-coral",
-  yellow: "border-yellow",
-  teal: "border-teal",
+const BLOCK_BG: Record<Block, string> = {
+  sky: "bg-sky",
+  sage: "bg-sage",
+  stone: "bg-stone",
+  orange: "bg-orange",
 };
 
 export default function CaseStudies() {
@@ -114,33 +150,85 @@ export default function CaseStudies() {
         {STUDIES.map((s, i) => (
           <motion.article
             key={s.title}
-            initial={{ opacity: 0, y: 24 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.4, delay: (i % 3) * 0.08 }}
-            className={`bg-paper border-2 ${CARD_BORDER[s.color]} rounded-2xl p-7 flex flex-col gap-3 relative hover:-translate-y-1.5 hover:shadow-lg transition-all`}
+            transition={{ duration: 0.35, delay: (i % 3) * 0.06 }}
+            className="flex flex-col gap-4 group"
           >
-            <div className="flex items-center justify-between">
-              <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-ink border border-ink/30 px-2 py-1 rounded-full">
+            {/* the poster */}
+            <div
+              className={`relative aspect-[4/5] overflow-hidden ${
+                s.photo ? "bg-ink" : BLOCK_BG[s.block]
+              }`}
+            >
+              {s.photo && (
+                <Image
+                  src={s.photo}
+                  alt=""
+                  fill
+                  className="object-cover opacity-80 group-hover:opacity-90 transition-opacity"
+                  sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                />
+              )}
+
+              <div className="absolute top-3 left-3 flex items-center gap-2 text-ink">
+                {s.logos?.map((b) => (
+                  <BrandMark
+                    key={b}
+                    brand={b}
+                    className={`h-5 w-auto max-w-[3.5rem] ${s.photo ? "text-paper" : ""}`}
+                  />
+                ))}
+                {s.textLogo && (
+                  <TextLogo
+                    name={s.textLogo}
+                    className={`text-sm ${s.photo ? "text-paper" : "text-ink"}`}
+                  />
+                )}
+              </div>
+
+              <span
+                className={`poster-meta absolute top-3 right-3 ${
+                  s.photo ? "text-paper" : "text-ink/70"
+                }`}
+              >
                 {s.tag}
               </span>
-              <SealStamp text={s.stamp} color={s.color} rotate={6} className="text-xs px-3 py-1" />
-            </div>
-            <h3 className="font-display font-bold text-2xl leading-tight mt-2">{s.title}</h3>
-            <p className="font-mono text-xs text-ink-soft uppercase tracking-wide">
-              {s.client}
-            </p>
-            <p className="text-ink-soft leading-relaxed text-sm">{s.body}</p>
-            {"href" in s && s.href && (
-              <a
-                href={s.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wide font-bold text-ink border-2 ${CARD_BORDER[s.color]} rounded-full px-4 py-2 mt-1 hover:bg-ink hover:text-paper hover:border-ink transition-colors w-fit`}
+
+              <h3
+                className={`display-tight absolute left-3 right-3 bottom-10 text-4xl sm:text-5xl ${
+                  s.photo ? "text-paper" : "text-ink"
+                }`}
               >
-                {s.linkLabel} ↗
-              </a>
-            )}
+                {s.keyword}
+              </h3>
+
+              <span
+                className={`poster-meta absolute left-3 bottom-3 right-3 ${
+                  s.photo ? "text-paper/80" : "text-ink/70"
+                }`}
+              >
+                {s.meta}
+              </span>
+            </div>
+
+            {/* the caption */}
+            <div className="flex flex-col gap-2">
+              <h4 className="font-bold text-xl leading-tight">{s.title}</h4>
+              <p className="poster-meta text-ink-soft">{s.client}</p>
+              <p className="text-ink-soft leading-relaxed text-sm">{s.body}</p>
+              {s.href && (
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="poster-meta font-bold text-ink hover:text-orange transition-colors w-fit mt-1"
+                >
+                  {s.linkLabel} ↗
+                </a>
+              )}
+            </div>
           </motion.article>
         ))}
       </div>

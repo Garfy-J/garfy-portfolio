@@ -10,7 +10,7 @@ const SECTIONS = [
   { id: "education", label: "Education" },
   { id: "case-studies", label: "Case Studies" },
   { id: "ai-projects", label: "AI Projects" },
-  { id: "music", label: "Music" },
+  { id: "music", label: "Film & Music" },
   { id: "writing", label: "Writing" },
   { id: "contact", label: "Contact" },
 ];
@@ -40,7 +40,7 @@ export default function Nav() {
       {/* Mobile toggle */}
       <button
         onClick={() => setOpen(!open)}
-        className="fixed top-4 right-4 z-50 sm:hidden bg-ink text-paper font-mono text-xs px-3 py-2 rounded-sm shadow-md"
+        className="fixed top-4 right-4 z-50 sm:hidden bg-ink text-paper poster-meta px-3 py-2"
         aria-expanded={open}
         aria-label="Toggle navigation"
       >
@@ -60,16 +60,11 @@ export default function Nav() {
               key={s.id}
               href={`#${s.id}`}
               onClick={() => setOpen(false)}
-              className={`group flex items-center gap-2 pl-4 pr-3 py-2 sm:py-1.5 font-mono text-[11px] font-bold uppercase tracking-wider border-l-4 transition-colors ${
+              className={`poster-meta flex items-center gap-2 pl-4 pr-3 py-2 sm:py-1.5 font-bold border-l-2 transition-colors ${
                 isActive
-                  ? "border-coral text-coral bg-paper/80 sm:bg-paper"
+                  ? "border-orange text-orange"
                   : "border-transparent text-ink-soft hover:text-ink hover:border-rule"
               }`}
-              style={
-                isActive
-                  ? { borderTopRightRadius: 4, borderBottomRightRadius: 4 }
-                  : undefined
-              }
             >
               {s.label}
             </a>
